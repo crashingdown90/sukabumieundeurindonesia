@@ -52,39 +52,39 @@ export default function TicketHome() {
         <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
           
           {/* Ticket Card 1 */}
-          <div style={{ display: "flex", flexWrap: "wrap", border: "2px solid var(--color-text-primary)", backgroundColor: "var(--color-bg-primary)" }}>
-            <div style={{ flex: "1 1 300px", minHeight: "250px", backgroundImage: "url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1000&auto=format&fit=crop')", backgroundSize: "cover", backgroundPosition: "center", filter: "grayscale(100%) contrast(120%)", borderRight: "2px solid var(--color-text-primary)" }}></div>
-            <div style={{ flex: "2 1 400px", padding: "32px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-              <div style={{ display: "flex", gap: "16px", marginBottom: "16px", fontSize: "0.9rem", fontWeight: "bold", color: "var(--color-bg-primary)" }}>
+          <div className="ticket-card">
+            <div className="ticket-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1000&auto=format&fit=crop')" }}></div>
+            <div className="ticket-content">
+              <div style={{ display: "flex", gap: "16px", marginBottom: "16px", fontSize: "0.9rem", fontWeight: "bold", color: "var(--color-bg-primary)", flexWrap: "wrap" }}>
                 <span style={{ backgroundColor: "var(--color-text-primary)", padding: "4px 12px" }}>12 AGUSTUS 2024</span>
                 <span style={{ backgroundColor: "var(--color-text-primary)", padding: "4px 12px" }}>GOR MERDEKA</span>
               </div>
-              <h3 style={{ fontSize: "2.5rem", marginBottom: "8px", lineHeight: "1.1" }}>SUKABUMI EUNDEUR FESTIVAL 2024</h3>
+              <h3 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", marginBottom: "8px", lineHeight: "1.1" }}>SUKABUMI EUNDEUR FESTIVAL 2024</h3>
               <p style={{ fontSize: "1.1rem", color: "var(--color-text-secondary)", marginBottom: "24px" }}>
                 Featuring: Burgerkill, DeadSquad, Rosemary, Jasad, and more local heroes.
               </p>
-              <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-                <span style={{ fontSize: "1.8rem", fontWeight: "bold" }}>Rp 75.000</span>
-                <a href="/ticket/1" className="btn btn-primary" style={{ padding: "12px 32px" }}>BELI TIKET</a>
+              <div style={{ display: "flex", alignItems: "center", gap: "24px", flexWrap: "wrap" }}>
+                <span style={{ fontSize: "1.8rem", fontWeight: "bold", whiteSpace: "nowrap" }}>Rp 75.000</span>
+                <a href="/ticket/1" className="btn btn-primary" style={{ padding: "12px 32px", width: "fit-content", border: "4px solid var(--color-text-primary)" }}>BELI TIKET</a>
               </div>
             </div>
           </div>
 
           {/* Ticket Card 2 */}
-          <div style={{ display: "flex", flexWrap: "wrap", border: "2px solid var(--color-text-primary)", backgroundColor: "var(--color-bg-secondary)" }}>
-            <div style={{ flex: "1 1 300px", minHeight: "250px", backgroundImage: "url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1000&auto=format&fit=crop')", backgroundSize: "cover", backgroundPosition: "center", filter: "grayscale(100%) contrast(120%)", borderRight: "2px solid var(--color-text-primary)" }}></div>
-            <div style={{ flex: "2 1 400px", padding: "32px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-              <div style={{ display: "flex", gap: "16px", marginBottom: "16px", fontSize: "0.9rem", fontWeight: "bold", color: "var(--color-text-primary)", border: "2px solid var(--color-text-primary)", width: "fit-content" }}>
+          <div className="ticket-card" style={{ backgroundColor: "var(--color-bg-secondary)" }}>
+            <div className="ticket-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1000&auto=format&fit=crop')" }}></div>
+            <div className="ticket-content">
+              <div style={{ display: "flex", gap: "16px", marginBottom: "16px", fontSize: "0.9rem", fontWeight: "bold", color: "var(--color-text-primary)", border: "2px solid var(--color-text-primary)", width: "fit-content", flexWrap: "wrap" }}>
                 <span style={{ padding: "4px 12px", borderRight: "2px solid var(--color-text-primary)" }}>25 NOVEMBER 2024</span>
                 <span style={{ padding: "4px 12px" }}>SECRET VENUE</span>
               </div>
-              <h3 style={{ fontSize: "2.5rem", marginBottom: "8px", lineHeight: "1.1" }}>REROUTE TO ROOTS Vol. 3</h3>
+              <h3 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", marginBottom: "8px", lineHeight: "1.1" }}>REROUTE TO ROOTS Vol. 3</h3>
               <p style={{ fontSize: "1.1rem", color: "var(--color-text-secondary)", marginBottom: "24px" }}>
                 Intimate underground gig with 100% pure hardcore energy.
               </p>
-              <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-                <span style={{ fontSize: "1.8rem", fontWeight: "bold" }}>Rp 45.000</span>
-                <button className="btn" style={{ padding: "12px 32px", opacity: 0.5, cursor: "not-allowed" }} disabled>SOLD OUT</button>
+              <div style={{ display: "flex", alignItems: "center", gap: "24px", flexWrap: "wrap" }}>
+                <span style={{ fontSize: "1.8rem", fontWeight: "bold", whiteSpace: "nowrap" }}>Rp 45.000</span>
+                <button className="btn" style={{ padding: "12px 32px", opacity: 0.5, cursor: "not-allowed", border: "4px solid var(--color-text-primary)" }} disabled>SOLD OUT</button>
               </div>
             </div>
           </div>
