@@ -1,19 +1,9 @@
+import HeroSlider from "@/components/HeroSlider";
+
 export default function Home() {
   return (
     <div className="container" style={{ padding: "80px 24px" }}>
-      {/* Hero Section */}
-      <section style={{ textAlign: "center", marginBottom: "100px" }}>
-        <h1 style={{ fontSize: "4rem", marginBottom: "24px", lineHeight: "1.1" }}>
-          SUKABUMI <span style={{ color: "var(--color-text-primary)" }}>EUNDEUR</span> INDONESIA
-        </h1>
-        <p style={{ fontSize: "1.2rem", color: "var(--color-text-secondary)", maxWidth: "800px", margin: "0 auto 40px auto" }}>
-          Episentrum pergerakan musik independen. Menyatukan distorsi, energi, dan semangat solidaritas dalam satu frekuensi.
-        </p>
-        <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
-          <a href="/events" className="btn btn-primary">Lihat Jadwal Gig</a>
-          <a href="https://shop.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" className="btn">Merchandise Resmi</a>
-        </div>
-      </section>
+      <HeroSlider />
 
       {/* Grid Features */}
       <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "40px", marginBottom: "100px" }}>
