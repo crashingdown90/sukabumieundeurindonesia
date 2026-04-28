@@ -20,12 +20,7 @@ export default function RootLayout({
         
         <Navbar />
 
-        {/* Marquee Running Text */}
-        <div className="marquee-container">
-          <div className="marquee-content">
-            🔥 SUPPORT YOUR LOCAL SCENE 🔥 100% INDEPENDENT 🔥 SUKABUMI EUNDEUR INDONESIA 🔥 UNDERGROUND MOVEMENT SINCE 2000 🔥
-          </div>
-        </div>
+
 
         <main style={{ minHeight: "calc(100vh - 180px)" }}>
           {children}
