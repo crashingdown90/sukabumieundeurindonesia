@@ -151,7 +151,7 @@ h1, h2, h3, h4, h5, h6 {
     border-left: none;
     transition: 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0); /* Smoother slide */
     z-index: 1000;
-    padding-top: 120px;
+    padding-top: 80px;
   }
   
   .nav-links-wrapper.mobile-open {
@@ -166,11 +166,12 @@ h1, h2, h3, h4, h5, h6 {
 
   .nav-links > a {
     width: 100%;
-    padding: 24px !important;
-    border-bottom: 2px solid var(--color-bg-secondary);
+    padding: 16px 24px !important;
+    border-bottom: 1px solid var(--color-bg-secondary);
     color: var(--color-bg-primary) !important;
-    font-size: 1.5rem !important;
+    font-size: 1.1rem !important;
     text-align: center;
+    letter-spacing: 2px;
   }
 
   .main-site-btn {
