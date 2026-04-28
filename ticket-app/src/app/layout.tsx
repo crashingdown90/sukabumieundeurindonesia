@@ -53,12 +53,12 @@ export default function RootLayout({
           {children}
         </main>
 
-        <footer style={{ padding: "80px 24px 40px 24px", backgroundColor: "var(--color-text-primary)", color: "var(--color-bg-primary)", borderTop: "4px solid var(--color-border)" }}>
+        <footer style={{ padding: "80px 24px 40px 24px", backgroundColor: "#0a0a0a", color: "var(--color-text-primary)", borderTop: "1px solid rgba(255,255,255,0.1)" }}>
           <div className="container" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "40px", marginBottom: "60px" }}>
             
             {/* Column 1: Brand */}
             <div style={{ paddingRight: "20px" }}>
-              <Image src="/logo-sukabumi.png" alt="Sukabumi Eundeur Logo" width={200} height={80} style={{ objectFit: "contain", height: "60px", width: "auto", filter: "grayscale(1) invert(1) brightness(2)", marginBottom: "24px" }} />
+              <Image src="/logo-sukabumi.png" alt="Sukabumi Eundeur Logo" width={200} height={80} style={{ objectFit: "contain", height: "60px", width: "auto", filter: "invert(1)", marginBottom: "24px", opacity: 0.9 }} />
               <p style={{ color: "var(--color-bg-secondary)", lineHeight: "1.6", fontSize: "0.95rem" }}>
                 Portal distribusi tiket resmi yang dikelola oleh PT. Sukabumi Eundeur Holding. Kami berkomitmen menghadirkan layanan transaksi yang aman dan terpercaya untuk mendukung ekosistem acara independen.
               </p>
