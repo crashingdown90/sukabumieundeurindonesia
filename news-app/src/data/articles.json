@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "slug": "metalhead-kesehatan",
+    "title": "Metalhead Boleh Bangga! Ternyata, Musik Cadas Punya Pengaruh Positif Buat Kesehatan!",
+    "category": "sains-musik",
+    "author": "REDAKSI",
+    "date": "2024-04-28",
+    "image": "/metalhead-health.png",
+    "metaDescription": "Penelitian terbaru membuktikan bahwa mendengarkan musik keras dan cadas memiliki efek positif bagi kesehatan mental dan fisik.",
+    "content": "Buat sebagian orang, musik cadas adalah genre musik yang menyenangkan. Namun, nggak sedikit justru yang menganggap kalau musik jenis ini mengganggu telinga karena berisik.\n\nNamun rupanya, berdasarkan sebuah penelitian di Universitas Manchester, Inggris, menemukan bahwa semakin besar suara yang dihasilkan oleh musik yang kita dengar, maka semakin besar pula kesenangan yang bakal muncul dari diri kita.\n\nPenelitian tersebut menjelaskan bahwa suara keras dari musik bisa merangsang sacculus, sebuah organ di telinga bagian dalam yang terhubung dengan area otak yang mengatur kesenangan. Jadi, semakin keras musiknya, semakin besar pula efek kesenangan yang dihasilkan.\n\nSelain itu, sebuah studi dari Humboldt State University juga menemukan bahwa penggemar musik keras cenderung memiliki tingkat kreativitas yang lebih tinggi. Mereka lebih terbuka terhadap pengalaman baru dan memiliki cara berpikir yang lebih fleksibel.\n\nJadi, buat para metalhead dan pecinta musik cadas di luar sana, kalian boleh bangga! Kebiasaan mendengarkan musik keras ternyata punya dampak positif buat kesehatan mental dan kreativitas kalian.",
+    "status": "published",
+    "createdAt": "2024-04-28T10:00:00Z",
+    "updatedAt": "2024-04-28T10:00:00Z"
+  },
+  {
+    "id": "2",
+    "slug": "kebangkitan-skena",
+    "title": "Kebangkitan Skena Lokal Pasca Pandemi",
+    "category": "skena-lokal",
+    "author": "REDAKSI",
+    "date": "2024-04-28",
+    "image": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=1200&auto=format&fit=crop",
+    "metaDescription": "Skena underground Sukabumi membuktikan ketangguhannya pasca pandemi dengan ratusan kolektif kembali menggelar gigs mandiri.",
+    "content": "Lebih dari sekadar hingar bingar musik keras, skena underground Sukabumi membuktikan ketangguhannya. Ratusan kolektif mulai kembali merapatkan barisan, menggelar gigs mandiri di berbagai sudut kota tanpa sponsor korporat.\n\nIni adalah bukti bahwa semangat Do It Yourself (DIY) tidak pernah benar-benar mati. Pasca pandemi yang melumpuhkan hampir seluruh industri hiburan, komunitas-komunitas bawah tanah justru bangkit dengan energi yang lebih besar.\n\nBerbagai venue alternatif bermunculan, mulai dari garasi rumah, gudang tua, hingga lapangan terbuka yang disulap menjadi arena pertunjukan. Sistem gotong royong yang menjadi DNA pergerakan ini terbukti menjadi kekuatan utama dalam memulihkan ekosistem musik independen.\n\nPara promotor lokal seperti Sukabumi Eundeur menjadi garda terdepan dalam mengorganisir kembali jadwal gigs yang sempat vakum. Dengan semangat kolektif dan jaringan solidaritas yang kuat, skena Sukabumi kini siap memasuki era baru yang lebih matang dan terorganisir.",
+    "status": "published",
+    "createdAt": "2024-04-28T10:00:00Z",
+    "updatedAt": "2024-04-28T10:00:00Z"
+  }
+]
