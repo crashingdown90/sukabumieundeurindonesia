@@ -54,6 +54,10 @@ export default function Navbar() {
             </div>
           </div>
 
+          <div className="nav-item" style={{ marginLeft: "auto", marginRight: "12px" }}>
+            <a href="/login" style={{ padding: "8px 16px", fontSize: "1rem", border: "2px solid var(--color-text-primary)", fontWeight: "bold" }} onClick={() => setIsMobileMenuOpen(false)}>LOGIN / REGISTER</a>
+          </div>
+
           <a href="https://sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary main-site-btn" style={{ padding: "8px 16px", fontSize: "1rem" }} onClick={() => setIsMobileMenuOpen(false)}>MAIN SITE</a>
         </div>
       </div>
