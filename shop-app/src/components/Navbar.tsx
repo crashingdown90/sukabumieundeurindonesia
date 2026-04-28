@@ -1,9 +1,25 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 1024);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const toggleDropdown = (name: string, e: React.MouseEvent) => {
+    if (isMobile) {
+      e.preventDefault();
+      setActiveDropdown(activeDropdown === name ? null : name);
+    }
+  };
 
   return (
     <>
@@ -36,8 +52,10 @@ export default function Navbar() {
             
             {/* ARTISTS DROPDOWN */}
             <div className="nav-item">
-              <a href="/#catalog">ARTISTS <span style={{ fontSize: "0.7rem" }}>▼</span></a>
-              <div className="dropdown-mega-artists">
+              <a href="/#catalog" onClick={(e) => toggleDropdown("artists", e)} style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+                ARTISTS <span style={{ fontSize: "0.7rem", transition: "0.2s", transform: activeDropdown === "artists" ? "rotate(180deg)" : "none" }}>▼</span>
+              </a>
+              <div className={`dropdown-mega-artists ${activeDropdown === "artists" ? "force-open" : ""}`}>
                 <div className="dropdown-column">
                   <div className="dropdown-header">HIGHLIGHTED STORES</div>
                   <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Sukabumi Eundeur</a>
@@ -81,8 +99,10 @@ export default function Navbar() {
 
             {/* SHOP MEGA MENU */}
             <div className="nav-item">
-              <a href="/#catalog">SHOP <span style={{ fontSize: "0.7rem" }}>▼</span></a>
-              <div className="dropdown-mega">
+              <a href="/#catalog" onClick={(e) => toggleDropdown("shop", e)} style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+                SHOP <span style={{ fontSize: "0.7rem", transition: "0.2s", transform: activeDropdown === "shop" ? "rotate(180deg)" : "none" }}>▼</span>
+              </a>
+              <div className={`dropdown-mega ${activeDropdown === "shop" ? "force-open" : ""}`}>
                 <div className="dropdown-column">
                   <a href="#" className="dropdown-header">CLEARANCE</a>
                   <a href="#" className="dropdown-header" style={{ marginTop: "16px" }}>ALL PRODUCTS</a>
@@ -104,8 +124,10 @@ export default function Navbar() {
 
             {/* HELP DROPDOWN */}
             <div className="nav-item">
-              <a href="/faq">HELP <span style={{ fontSize: "0.7rem" }}>▼</span></a>
-              <div className="dropdown-menu">
+              <a href="/faq" onClick={(e) => toggleDropdown("help", e)} style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+                HELP <span style={{ fontSize: "0.7rem", transition: "0.2s", transform: activeDropdown === "help" ? "rotate(180deg)" : "none" }}>▼</span>
+              </a>
+              <div className={`dropdown-menu ${activeDropdown === "help" ? "force-open" : ""}`}>
                 <a href="/shipping" className="dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>SHIPPING</a>
                 <a href="/terms" className="dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>TERMS & CONDITIONS</a>
                 <a href="/faq" className="dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
