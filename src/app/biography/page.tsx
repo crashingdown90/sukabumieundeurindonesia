@@ -127,12 +127,18 @@ export default function BiographyPage() {
         <h2 style={{ fontSize: "3rem", marginBottom: "16px" }}>AFTER-MOVIE ARCHIVE</h2>
         <p style={{ color: "var(--color-text-secondary)", fontSize: "1.1rem", marginBottom: "40px" }}>Rasakan energi distorsi dan lautan *moshpit* dari edisi-edisi sebelumnya.</p>
         
-        <div style={{ maxWidth: "800px", margin: "0 auto", border: "4px solid var(--color-text-primary)", aspectRatio: "16/9", backgroundColor: "#000", position: "relative", display: "flex", justifyContent: "center", alignItems: "center" }}>
-          {/* Placeholder YouTube Embed */}
-          <div style={{ color: "#fff", textAlign: "center" }}>
-            <div style={{ fontSize: "4rem", marginBottom: "16px" }}>▶</div>
-            <p style={{ fontFamily: "var(--font-heading)", fontSize: "1.5rem", letterSpacing: "1px" }}>PLAY DOCUMENTARY</p>
-          </div>
+        <div style={{ maxWidth: "800px", margin: "0 auto", border: "4px solid var(--color-text-primary)", aspectRatio: "16/9", backgroundColor: "#000", position: "relative", overflow: "hidden" }}>
+          <iframe 
+            width="100%" 
+            height="100%" 
+            src="https://www.youtube.com/embed/IV-Fu7mW4lE?si=AXj9lWdd0mevc0JV" 
+            title="YouTube video player" 
+            frameBorder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerPolicy="strict-origin-when-cross-origin" 
+            allowFullScreen
+            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+          ></iframe>
         </div>
       </section>
 
