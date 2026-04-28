@@ -1,9 +1,25 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const toggleDropdown = (name: string, e: React.MouseEvent) => {
+    if (isMobile) {
+      e.preventDefault();
+      setActiveDropdown(activeDropdown === name ? null : name);
+    }
+  };
 
   return (
     <nav className="container nav-container" style={{ padding: "24px", borderBottom: "1px solid var(--color-border)", display: "flex", justifyContent: "space-between", alignItems: "center", position: "relative" }}>
@@ -27,8 +43,10 @@ export default function Navbar() {
         <div className="nav-links" style={{ fontSize: "0.95rem", letterSpacing: "1px", display: "flex", gap: "24px", alignItems: "center", fontWeight: "bold" }}>
           
           <div className="nav-item">
-            <a href="/">BROWSE EVENTS ▾</a>
-            <div className="dropdown-menu">
+            <a href="/" onClick={(e) => toggleDropdown("events", e)} style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+              BROWSE EVENTS <span style={{ fontSize: "0.7rem", transition: "0.2s", transform: activeDropdown === "events" ? "rotate(180deg)" : "none" }}>▼</span>
+            </a>
+            <div className={`dropdown-menu ${activeDropdown === "events" ? "force-open" : ""}`}>
               <a href="/category/music-concerts" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>MUSIC & CONCERTS</a>
               <a href="/category/festivals" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>FESTIVALS</a>
               <a href="/category/underground-gigs" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>UNDERGROUND GIGS</a>
@@ -37,8 +55,10 @@ export default function Navbar() {
           </div>
 
           <div className="nav-item">
-            <a href="/my-tickets">MY TICKETS ▾</a>
-            <div className="dropdown-menu">
+            <a href="/my-tickets" onClick={(e) => toggleDropdown("tickets", e)} style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+              MY TICKETS <span style={{ fontSize: "0.7rem", transition: "0.2s", transform: activeDropdown === "tickets" ? "rotate(180deg)" : "none" }}>▼</span>
+            </a>
+            <div className={`dropdown-menu ${activeDropdown === "tickets" ? "force-open" : ""}`}>
               <a href="/my-tickets/active" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>ACTIVE TICKETS</a>
               <a href="/my-tickets/history" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>PURCHASE HISTORY</a>
               <a href="/my-tickets/payment" className="dropdown-link" style={{ padding: "8px 0" }} onClick={() => setIsMobileMenuOpen(false)}>PAYMENT STATUS</a>
@@ -46,8 +66,10 @@ export default function Navbar() {
           </div>
 
           <div className="nav-item">
-            <a href="/help">SUPPORT ▾</a>
-            <div className="dropdown-menu">
+            <a href="/help" onClick={(e) => toggleDropdown("help", e)} style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+              SUPPORT <span style={{ fontSize: "0.7rem", transition: "0.2s", transform: activeDropdown === "help" ? "rotate(180deg)" : "none" }}>▼</span>
+            </a>
+            <div className={`dropdown-menu ${activeDropdown === "help" ? "force-open" : ""}`}>
               <a href="/help/faq" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>FAQ & HELP CENTER</a>
               <a href="/help/refund" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>REFUND POLICY</a>
               <a href="/help/contact" className="dropdown-link" style={{ padding: "8px 0" }} onClick={() => setIsMobileMenuOpen(false)}>CONTACT PROMOTER</a>
