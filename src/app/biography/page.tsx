@@ -92,7 +92,7 @@ export default function BiographyPage() {
           </div>
           <div style={{ position: "relative", height: "400px", border: "4px solid var(--color-text-primary)" }}>
             <Image 
-              src="/founders.png" 
+              src="/POL_5913.jpg" 
               alt="Sukabumi Eundeur Collective Founders" 
               fill 
               style={{ objectFit: "cover", filter: "grayscale(100%) contrast(120%)" }} 
