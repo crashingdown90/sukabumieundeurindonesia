@@ -47,12 +47,12 @@ export default function NewsHome() {
           
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "32px" }}>
             
-            {/* Article 1 */}
-            <a href="#" style={{ display: "block", textDecoration: "none", color: "inherit", group: "true" }} className="product-card">
-              <div style={{ height: "200px", backgroundImage: "url('https://images.unsplash.com/photo-1470229722913-7c090be5f564?q=80&w=800&auto=format&fit=crop')", backgroundSize: "cover", backgroundPosition: "center", filter: "grayscale(100%)", border: "2px solid var(--color-text-primary)", marginBottom: "16px" }}></div>
-              <span style={{ fontSize: "0.8rem", fontWeight: "bold", padding: "4px 8px", border: "1px solid var(--color-text-primary)" }}>GIGS</span>
-              <h4 style={{ fontSize: "1.5rem", margin: "12px 0", lineHeight: "1.2" }}>Review: Reroute To Roots Vol. 2 Pecah!</h4>
-              <p style={{ color: "var(--color-text-secondary)", fontSize: "0.95rem" }}>Moshpit tak terhentikan di venue rahasia akhir pekan lalu.</p>
+            {/* Article 1 - Metalhead Health */}
+            <a href="/artikel/metalhead-kesehatan" style={{ display: "block", textDecoration: "none", color: "inherit", group: "true" }} className="product-card">
+              <div style={{ height: "200px", backgroundImage: "url('/metalhead-health.png')", backgroundSize: "cover", backgroundPosition: "center", filter: "grayscale(100%) contrast(120%)", border: "2px solid var(--color-text-primary)", marginBottom: "16px" }}></div>
+              <span style={{ fontSize: "0.8rem", fontWeight: "bold", padding: "4px 8px", border: "1px solid var(--color-text-primary)" }}>SAINS & MUSIK</span>
+              <h4 style={{ fontSize: "1.5rem", margin: "12px 0", lineHeight: "1.2" }}>Metalhead Boleh Bangga! Ternyata, Musik Cadas Punya Pengaruh Positif Buat Kesehatan!</h4>
+              <p style={{ color: "var(--color-text-secondary)", fontSize: "0.95rem" }}>Penelitian dari Universitas Manchester membuktikan bahwa musik keras melatih ketajaman berpikir.</p>
             </a>
 
             {/* Article 2 */}
