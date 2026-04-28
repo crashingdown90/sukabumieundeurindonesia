@@ -79,8 +79,8 @@ export default function EditArticle() {
   if (loading) return <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "var(--color-bg-primary)" }}><p style={{ fontSize: "1.5rem", fontFamily: "var(--font-heading)" }}>LOADING...</p></div>;
 
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "var(--color-bg-primary)", padding: "24px" }}>
-      <div className="container" style={{ maxWidth: "800px" }}>
+    <div style={{ minHeight: "100vh", backgroundColor: "var(--color-bg-primary)", padding: "120px 24px 80px" }}>
+      <div className="container" style={{ maxWidth: "800px", margin: "0 auto" }}>
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid var(--color-border)", paddingBottom: "24px", marginBottom: "32px", flexWrap: "wrap", gap: "16px" }}>
           <h1 style={{ fontSize: "2rem", fontFamily: "var(--font-heading)", letterSpacing: "2px" }}>EDIT ARTIKEL</h1>
