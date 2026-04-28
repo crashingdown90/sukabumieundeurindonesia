@@ -4,9 +4,28 @@ import "./globals.css";
 
 import Navbar from "../components/Navbar";
 
+import Script from "next/script";
+
 export const metadata: Metadata = {
-  title: "Sukabumi Eundeur - Official Ticket",
-  description: "Beli tiket resmi event Sukabumi Eundeur",
+  title: "Beli Tiket Resmi Sukabumi Eundeur Festival 2024 - Official Ticket",
+  description: "Platform resmi pembelian tiket untuk semua event, gigs, dan festival musik keras bawah tanah yang diselenggarakan oleh Sukabumi Eundeur Indonesia. 100% aman dan terpercaya.",
+  keywords: "tiket konser sukabumi, tiket sukabumi eundeur, tiket burgerkill, tiket deadsquad, festival metal sukabumi, gigs underground, tiket online",
+  openGraph: {
+    title: "Beli Tiket Resmi Sukabumi Eundeur Festival 2024",
+    description: "Platform resmi pembelian tiket event Sukabumi Eundeur Indonesia.",
+    url: "https://ticket.sukabumieundeurindonesia.com",
+    siteName: "Sukabumi Eundeur Ticket",
+    locale: "id_ID",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -16,6 +35,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
+      <head>
+        {/* Google AdSense Integration */}
+        <meta name="google-adsense-account" content="ca-pub-1234567890123456" />
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456"
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
+        />
+      </head>
       <body style={{ backgroundColor: "var(--color-bg-primary)", color: "var(--color-text-primary)" }}>
         
         <Navbar />
