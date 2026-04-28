@@ -41,56 +41,74 @@ export default function AdminDashboard() {
   if (loading) return <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "var(--color-bg-primary)" }}><p style={{ fontSize: "1.5rem", fontFamily: "var(--font-heading)" }}>LOADING...</p></div>;
 
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "var(--color-bg-primary)", padding: "24px" }}>
+    <div style={{ minHeight: "100vh", backgroundColor: "var(--color-bg-primary)", padding: "40px 24px", paddingTop: "100px" }}>
       <div className="container" style={{ maxWidth: "1000px" }}>
 
         {/* Header */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid var(--color-border)", paddingBottom: "24px", marginBottom: "40px", flexWrap: "wrap", gap: "16px" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", borderBottom: "1px solid var(--color-border)", paddingBottom: "24px", marginBottom: "48px", flexWrap: "wrap", gap: "24px" }}>
           <div>
-            <h1 style={{ fontSize: "2.5rem", fontFamily: "var(--font-heading)", letterSpacing: "2px" }}>DASHBOARD</h1>
-            <p style={{ color: "var(--color-text-secondary)", fontSize: "0.95rem" }}>Panel Redaksi — Sukabumi Eundeur News</p>
+            <h1 style={{ fontSize: "3rem", fontFamily: "var(--font-heading)", letterSpacing: "2px", lineHeight: "1" }}>DASHBOARD</h1>
+            <p style={{ color: "var(--color-text-secondary)", fontSize: "1rem", marginTop: "8px", letterSpacing: "1px" }}>PANEL REDAKSI — SUKABUMI EUNDEUR NEWS</p>
           </div>
-          <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-            <a href="/" style={{ padding: "10px 20px", border: "1px solid var(--color-border)", fontSize: "0.9rem", fontFamily: "var(--font-heading)", letterSpacing: "1px", color: "var(--color-text-secondary)" }}>← NEWS</a>
-            <button onClick={handleLogout} style={{ padding: "10px 20px", backgroundColor: "transparent", border: "1px solid #ef4444", color: "#ef4444", fontSize: "0.9rem", fontFamily: "var(--font-heading)", letterSpacing: "1px", cursor: "pointer" }}>LOGOUT</button>
+          <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+            <a href="/" className="btn" style={{ padding: "10px 20px", fontSize: "0.9rem", backgroundColor: "transparent", color: "var(--color-text-primary)", border: "1px solid var(--color-border)" }}>← NEWS</a>
+            <button onClick={handleLogout} className="btn" style={{ padding: "10px 20px", backgroundColor: "transparent", border: "1px solid #ef4444", color: "#ef4444", fontSize: "0.9rem" }}>LOGOUT</button>
           </div>
         </div>
 
         {/* Stats */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "24px", marginBottom: "48px" }}>
-          <div style={{ padding: "32px", backgroundColor: "var(--color-bg-secondary)", border: "1px solid var(--color-border)", textAlign: "center" }}>
-            <p style={{ fontSize: "3.5rem", fontWeight: "bold", fontFamily: "var(--font-heading)" }}>{articles.length}</p>
-            <p style={{ color: "var(--color-text-secondary)", fontSize: "0.9rem", letterSpacing: "2px", marginTop: "8px" }}>TOTAL ARTIKEL</p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "24px", marginBottom: "56px" }}>
+          <div className="product-card" style={{ padding: "32px", textAlign: "center", border: "1px solid var(--color-border)", backgroundColor: "var(--color-bg-secondary)", borderRadius: "8px" }}>
+            <p style={{ fontSize: "4rem", fontWeight: "bold", fontFamily: "var(--font-heading)", lineHeight: "1", color: "var(--color-text-primary)" }}>{articles.length}</p>
+            <p style={{ color: "var(--color-text-secondary)", fontSize: "0.95rem", letterSpacing: "2px", marginTop: "12px", fontFamily: "var(--font-heading)" }}>TOTAL ARTIKEL</p>
           </div>
-          <div style={{ padding: "32px", backgroundColor: "var(--color-bg-secondary)", border: "1px solid var(--color-border)", textAlign: "center" }}>
-            <p style={{ fontSize: "3.5rem", fontWeight: "bold", fontFamily: "var(--font-heading)", color: "#22c55e" }}>{published}</p>
-            <p style={{ color: "var(--color-text-secondary)", fontSize: "0.9rem", letterSpacing: "2px", marginTop: "8px" }}>PUBLISHED</p>
+          <div className="product-card" style={{ padding: "32px", textAlign: "center", border: "1px solid var(--color-border)", backgroundColor: "var(--color-bg-secondary)", borderRadius: "8px" }}>
+            <p style={{ fontSize: "4rem", fontWeight: "bold", fontFamily: "var(--font-heading)", lineHeight: "1", color: "#22c55e" }}>{published}</p>
+            <p style={{ color: "var(--color-text-secondary)", fontSize: "0.95rem", letterSpacing: "2px", marginTop: "12px", fontFamily: "var(--font-heading)" }}>PUBLISHED</p>
           </div>
-          <div style={{ padding: "32px", backgroundColor: "var(--color-bg-secondary)", border: "1px solid var(--color-border)", textAlign: "center" }}>
-            <p style={{ fontSize: "3.5rem", fontWeight: "bold", fontFamily: "var(--font-heading)", color: "#f59e0b" }}>{drafts}</p>
-            <p style={{ color: "var(--color-text-secondary)", fontSize: "0.9rem", letterSpacing: "2px", marginTop: "8px" }}>DRAFT</p>
+          <div className="product-card" style={{ padding: "32px", textAlign: "center", border: "1px solid var(--color-border)", backgroundColor: "var(--color-bg-secondary)", borderRadius: "8px" }}>
+            <p style={{ fontSize: "4rem", fontWeight: "bold", fontFamily: "var(--font-heading)", lineHeight: "1", color: "#f59e0b" }}>{drafts}</p>
+            <p style={{ color: "var(--color-text-secondary)", fontSize: "0.95rem", letterSpacing: "2px", marginTop: "12px", fontFamily: "var(--font-heading)" }}>DRAFT</p>
           </div>
         </div>
 
         {/* Quick Actions */}
-        <div style={{ display: "flex", gap: "16px", marginBottom: "48px", flexWrap: "wrap" }}>
-          <a href="/admin/articles/new" style={{ flex: "1 1 200px", padding: "24px", backgroundColor: "var(--color-text-primary)", color: "var(--color-bg-primary)", textAlign: "center", fontFamily: "var(--font-heading)", fontSize: "1.2rem", letterSpacing: "2px" }}>+ BUAT ARTIKEL BARU</a>
-          <a href="/admin/articles" style={{ flex: "1 1 200px", padding: "24px", border: "1px solid var(--color-border)", textAlign: "center", fontFamily: "var(--font-heading)", fontSize: "1.2rem", letterSpacing: "2px", color: "var(--color-text-primary)" }}>KELOLA ARTIKEL</a>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px", marginBottom: "56px" }}>
+          <a href="/admin/articles/new" className="product-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px", backgroundColor: "var(--color-text-primary)", color: "var(--color-bg-primary)", textAlign: "center", textDecoration: "none", borderRadius: "8px" }}>
+            <span style={{ fontSize: "3rem", marginBottom: "16px", lineHeight: "1" }}>+</span>
+            <span style={{ fontFamily: "var(--font-heading)", fontSize: "1.5rem", letterSpacing: "2px" }}>BUAT ARTIKEL BARU</span>
+          </a>
+          <a href="/admin/articles" className="product-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px", border: "1px solid var(--color-border)", backgroundColor: "var(--color-bg-secondary)", textAlign: "center", textDecoration: "none", color: "var(--color-text-primary)", borderRadius: "8px" }}>
+            <span style={{ fontSize: "3rem", marginBottom: "16px", lineHeight: "1" }}>📋</span>
+            <span style={{ fontFamily: "var(--font-heading)", fontSize: "1.5rem", letterSpacing: "2px" }}>KELOLA ARTIKEL</span>
+          </a>
         </div>
 
         {/* Recent Articles */}
         <div>
-          <h2 style={{ fontSize: "1.5rem", fontFamily: "var(--font-heading)", marginBottom: "24px", letterSpacing: "2px" }}>ARTIKEL TERBARU</h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid var(--color-border)", paddingBottom: "16px", marginBottom: "24px" }}>
+            <h2 style={{ fontSize: "1.8rem", fontFamily: "var(--font-heading)", letterSpacing: "2px" }}>ARTIKEL TERBARU</h2>
+            <a href="/admin/articles" className="hover-opacity" style={{ fontSize: "0.9rem", color: "var(--color-text-secondary)", letterSpacing: "1px" }}>LIHAT SEMUA →</a>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             {articles.slice(0, 5).map(a => (
-              <a href={`/admin/articles/edit/${a.slug}`} key={a.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 20px", backgroundColor: "var(--color-bg-secondary)", border: "1px solid var(--color-border)", textDecoration: "none", color: "inherit", gap: "16px", flexWrap: "wrap" }}>
+              <a href={`/admin/articles/edit/${a.slug}`} key={a.id} className="product-card" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 24px", backgroundColor: "var(--color-bg-secondary)", border: "1px solid var(--color-border)", textDecoration: "none", color: "inherit", gap: "16px", flexWrap: "wrap", borderRadius: "8px" }}>
                 <div style={{ flex: 1 }}>
-                  <h4 style={{ fontSize: "1.1rem", marginBottom: "4px", fontFamily: "var(--font-heading)" }}>{a.title}</h4>
-                  <p style={{ color: "var(--color-text-secondary)", fontSize: "0.85rem" }}>{a.category} • {a.date}</p>
+                  <h4 style={{ fontSize: "1.2rem", marginBottom: "8px", fontFamily: "var(--font-heading)", letterSpacing: "1px" }}>{a.title}</h4>
+                  <p style={{ color: "var(--color-text-secondary)", fontSize: "0.9rem", display: "flex", gap: "12px", alignItems: "center" }}>
+                    <span style={{ textTransform: "uppercase", letterSpacing: "1px", fontSize: "0.8rem", border: "1px solid var(--color-border)", padding: "2px 8px", borderRadius: "4px" }}>{a.category.replace('-', ' ')}</span>
+                    <span>•</span>
+                    <span>{a.date}</span>
+                  </p>
                 </div>
-                <span style={{ padding: "4px 12px", fontSize: "0.8rem", fontWeight: "bold", fontFamily: "var(--font-heading)", letterSpacing: "1px", backgroundColor: a.status === "published" ? "rgba(34,197,94,0.15)" : "rgba(245,158,11,0.15)", color: a.status === "published" ? "#22c55e" : "#f59e0b", border: `1px solid ${a.status === "published" ? "#22c55e" : "#f59e0b"}` }}>{a.status.toUpperCase()}</span>
+                <span style={{ padding: "6px 16px", fontSize: "0.85rem", fontWeight: "bold", fontFamily: "var(--font-heading)", letterSpacing: "1px", backgroundColor: a.status === "published" ? "rgba(34,197,94,0.1)" : "rgba(245,158,11,0.1)", color: a.status === "published" ? "#22c55e" : "#f59e0b", border: `1px solid ${a.status === "published" ? "rgba(34,197,94,0.3)" : "rgba(245,158,11,0.3)"}`, borderRadius: "20px" }}>{a.status.toUpperCase()}</span>
               </a>
             ))}
+            {articles.length === 0 && (
+              <div style={{ padding: "40px", textAlign: "center", border: "1px dashed var(--color-border)", borderRadius: "8px", color: "var(--color-text-secondary)" }}>
+                Belum ada artikel. Mulai menulis sekarang!
+              </div>
+            )}
           </div>
         </div>
 
