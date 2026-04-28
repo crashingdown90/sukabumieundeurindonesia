@@ -6,7 +6,7 @@ export default function Home() {
       <HeroSlider />
 
       {/* Grid Features */}
-      <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "40px", marginBottom: "100px" }}>
+      <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "40px", marginBottom: "100px" }}>
         <div style={{ padding: "40px", border: "2px solid var(--color-text-primary)", backgroundColor: "var(--color-bg-secondary)" }}>
           <h3 style={{ fontSize: "1.8rem", marginBottom: "16px" }}>🔥 BERITA & ARTIKEL</h3>
           <p style={{ color: "var(--color-text-secondary)", marginBottom: "24px" }}>Update terbaru seputar rilisan album, interview eksklusif, dan review gigs.</p>

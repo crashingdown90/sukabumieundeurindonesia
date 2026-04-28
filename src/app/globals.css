@@ -79,3 +79,42 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--color-text-primary);
   color: var(--color-bg-primary);
 }
+
+/* Responsive Utilities */
+.nav-container {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+    gap: 16px;
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    font-size: 0.9rem;
+  }
+
+  .nav-links .btn {
+    padding: 6px 12px !important;
+    font-size: 0.9rem !important;
+  }
+}
+

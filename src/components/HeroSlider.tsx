@@ -89,14 +89,14 @@ export default function HeroSlider() {
             padding: "24px",
             color: "white", // Selalu putih karena overlay gelap
           }}>
-            <h1 style={{ fontSize: "5rem", marginBottom: "16px", lineHeight: "1.1", textShadow: "4px 4px 0 #000" }}>
+            <h1 style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)", marginBottom: "16px", lineHeight: "1.1", textShadow: "4px 4px 0 #000" }}>
               {slide.title}
             </h1>
-            <p style={{ fontSize: "1.5rem", fontWeight: "bold", letterSpacing: "2px", textShadow: "2px 2px 0 #000" }}>
+            <p style={{ fontSize: "clamp(1rem, 4vw, 1.5rem)", fontWeight: "bold", letterSpacing: "2px", textShadow: "2px 2px 0 #000" }}>
               {slide.subtitle}
             </p>
             
-            <div style={{ display: "flex", gap: "16px", marginTop: "40px" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px", marginTop: "40px" }}>
               <a href="/events" className="btn" style={{ backgroundColor: "white", color: "black", borderColor: "white" }}>Lihat Jadwal Gig</a>
               <a href="https://shop.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" className="btn" style={{ backgroundColor: "transparent", color: "white", borderColor: "white" }}>Merchandise Resmi</a>
             </div>

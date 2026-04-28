@@ -15,11 +15,11 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body>
-        <nav style={{ padding: "24px", borderBottom: "1px solid var(--color-border)", display: "flex", gap: "24px", justifyContent: "space-between", alignItems: "center", maxWidth: "1200px", margin: "0 auto" }}>
+        <nav className="nav-container" style={{ padding: "24px", borderBottom: "1px solid var(--color-border)" }}>
           <a href="/" style={{ display: "flex", alignItems: "center" }}>
             <Image src="/logo-sukabumi.png" alt="Sukabumi Eundeur Logo" width={250} height={80} style={{ objectFit: "contain", height: "60px", width: "auto" }} priority />
           </a>
-          <div style={{ display: "flex", gap: "24px", alignItems: "center", fontWeight: "500" }}>
+          <div className="nav-links">
             <a href="/">HOME</a>
             <a href="/about">ABOUT</a>
             <a href="/biography">BIOGRAPHY</a>
