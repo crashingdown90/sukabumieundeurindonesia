@@ -26,7 +26,14 @@ export default function AdminArticles() {
   }, [router]);
 
   const loadArticles = () => {
-    fetch("/api/articles").then(r => r.json()).then(data => { setArticles(data); setLoading(false); });
+    fetch("/api/articles").then(r => r.json()).then(data => {
+      if (Array.isArray(data)) {
+        setArticles(data);
+      } else {
+        setArticles([]);
+      }
+      setLoading(false);
+    });
   };
 
   const handleDelete = async (slug: string) => {

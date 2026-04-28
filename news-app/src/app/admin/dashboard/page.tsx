@@ -24,7 +24,12 @@ export default function AdminDashboard() {
       return;
     }
     fetch("/api/articles").then(r => r.json()).then(data => {
-      setArticles(data);
+      if (Array.isArray(data)) {
+        setArticles(data);
+      } else {
+        setArticles([]);
+        console.error("Failed to load articles:", data.error);
+      }
       setLoading(false);
     });
   }, [router]);
