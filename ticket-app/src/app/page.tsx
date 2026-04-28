@@ -12,7 +12,7 @@ export default function TicketHome() {
         <div style={{
           position: "absolute",
           top: 0, left: 0, width: "100%", height: "100%",
-          backgroundImage: "url('https://images.unsplash.com/photo-1540039155732-d68a2bf0628a?q=80&w=2000&auto=format&fit=crop')",
+          backgroundImage: "url('/nano-banana.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           filter: "grayscale(100%) contrast(120%)",
