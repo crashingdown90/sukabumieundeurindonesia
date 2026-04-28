@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Register | Sukabumi Eundeur Ticketing",
+  description: "Buat akun baru untuk membeli tiket konser, melihat riwayat transaksi, dan mengamankan e-ticket Anda.",
+};
+
 export default function RegisterPage() {
   return (
     <>

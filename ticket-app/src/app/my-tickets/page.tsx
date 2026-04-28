@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "My Tickets | Sukabumi Eundeur Ticketing",
+  description: "Portal manajemen tiket pribadi. Masuk untuk melihat tiket aktif, barcode event, dan riwayat transaksi Anda.",
+};
+
 export default function MyTicketsPage() {
   return (
     <>

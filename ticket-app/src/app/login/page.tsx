@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Login | Sukabumi Eundeur Ticketing",
+  description: "Masuk ke portal akun Sukabumi Eundeur untuk mengelola tiket dan riwayat pembelian Anda.",
+};
+
 export default function LoginPage() {
   return (
     <>

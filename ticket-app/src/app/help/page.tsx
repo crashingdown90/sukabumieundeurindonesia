@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Help & FAQ | Sukabumi Eundeur Ticketing",
+  description: "Pusat bantuan portal tiket Sukabumi Eundeur. Temukan jawaban seputar cara pembelian, refund tiket, dan hubungi promotor kami.",
+};
+
 export default function HelpPage() {
   return (
     <>

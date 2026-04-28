@@ -1,3 +1,12 @@
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const categoryName = resolvedParams.slug.replace(/-/g, " ").toUpperCase();
+  return {
+    title: `${categoryName} Events | Sukabumi Eundeur Ticketing`,
+    description: `Daftar acara dan konser untuk kategori ${categoryName} di Sukabumi Eundeur. Amankan tiket Anda sekarang.`,
+  };
+}
+
 export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
   const rawSlug = resolvedParams.slug;

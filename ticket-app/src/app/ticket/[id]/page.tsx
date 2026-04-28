@@ -1,3 +1,10 @@
+export async function generateMetadata() {
+  return {
+    title: "SUKABUMI EUNDEUR FESTIVAL 2024 | Beli Tiket Resmi",
+    description: "Beli tiket Sukabumi Eundeur Festival 2024. Saksikan Burgerkill, DeadSquad, Rosemary, Jasad, dan banyak lagi secara live.",
+  };
+}
+
 export default async function TicketDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
   const ticketId = resolvedParams.id;

@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Payment Status | Sukabumi Eundeur Ticketing",
+  description: "Cek status pembayaran tiket konser Sukabumi Eundeur Anda. Segera selesaikan transaksi untuk mengamankan e-ticket.",
+};
+
 export default function PaymentStatusPage() {
   return (
     <>
