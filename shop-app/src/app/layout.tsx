@@ -30,6 +30,14 @@ export default function RootLayout({
             <a href="https://sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" style={{ borderLeft: "2px solid var(--color-text-primary)", paddingLeft: "16px", marginLeft: "8px" }}>MAIN SITE</a>
           </div>
         </nav>
+        
+        {/* Marquee Running Text */}
+        <div className="marquee-container">
+          <div className="marquee-content">
+            🔥 NEW COLLECTION 2024 🔥 SUPPORT YOUR LOCAL SCENE 🔥 100% INDEPENDENT 🔥 WORLDWIDE SHIPPING 🔥 100% PROFIT FOR THE MOVEMENT 🔥
+          </div>
+        </div>
+
         <main style={{ minHeight: "calc(100vh - 180px)" }}>
           {children}
         </main>
