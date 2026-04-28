@@ -15,11 +15,11 @@ export default function Navbar() {
       <div 
         className="hamburger" 
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        style={{ cursor: "pointer", zIndex: 1100 }}
+        style={{ cursor: "pointer", zIndex: 1100, padding: "8px" }}
       >
-        <div style={{ width: "30px", height: "3px", backgroundColor: isMobileMenuOpen ? "var(--color-bg-primary)" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s", transform: isMobileMenuOpen ? "rotate(-45deg) translate(-5px, 6px)" : "none" }}></div>
-        <div style={{ width: "30px", height: "3px", backgroundColor: isMobileMenuOpen ? "transparent" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s" }}></div>
-        <div style={{ width: "30px", height: "3px", backgroundColor: isMobileMenuOpen ? "var(--color-bg-primary)" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s", transform: isMobileMenuOpen ? "rotate(45deg) translate(-5px, -6px)" : "none" }}></div>
+        <div style={{ width: "36px", height: "4px", backgroundColor: isMobileMenuOpen ? "var(--color-bg-primary)" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s", transform: isMobileMenuOpen ? "rotate(-45deg) translate(-6px, 8px)" : "none" }}></div>
+        <div style={{ width: "36px", height: "4px", backgroundColor: isMobileMenuOpen ? "transparent" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s" }}></div>
+        <div style={{ width: "36px", height: "4px", backgroundColor: isMobileMenuOpen ? "var(--color-bg-primary)" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s", transform: isMobileMenuOpen ? "rotate(45deg) translate(-6px, -8px)" : "none" }}></div>
       </div>
 
       {/* Desktop & Mobile Navigation Links */}
