@@ -2,9 +2,15 @@ export default function NewsHome() {
   return (
     <>
       {/* Ticker / Breaking News */}
-      <div style={{ width: "100%", backgroundColor: "var(--color-text-primary)", color: "var(--color-bg-primary)", padding: "12px 24px", fontFamily: "var(--font-heading)", letterSpacing: "1px", fontSize: "0.9rem", display: "flex", alignItems: "center" }}>
-        <span style={{ backgroundColor: "var(--color-bg-primary)", color: "var(--color-text-primary)", padding: "2px 8px", marginRight: "16px", fontWeight: "bold" }}>BREAKING</span>
-        <marquee>SUKABUMI EUNDEUR FESTIVAL 2024 RESMI DIGELAR BULAN AGUSTUS! TIKET PRESALE 1 SOLD OUT DALAM 2 JAM. BURGERKILL DAN DEADSQUAD DIPASTIKAN JADI HEADLINER.</marquee>
+      <div className="marquee-container" style={{ display: "flex", alignItems: "center", padding: 0 }}>
+        <div style={{ backgroundColor: "var(--color-bg-primary)", color: "var(--color-text-primary)", padding: "12px 24px", fontWeight: "bold", zIndex: 10, position: "relative", borderRight: "2px solid var(--color-text-primary)" }}>
+          BREAKING
+        </div>
+        <div style={{ overflow: "hidden", flex: 1, padding: "12px 0" }}>
+          <div className="marquee-content" style={{ paddingLeft: "100%" }}>
+            SUKABUMI EUNDEUR FESTIVAL 2024 RESMI DIGELAR BULAN AGUSTUS! TIKET PRESALE 1 SOLD OUT DALAM 2 JAM. BURGERKILL DAN DEADSQUAD DIPASTIKAN JADI HEADLINER.
+          </div>
+        </div>
       </div>
 
       <div className="container" style={{ padding: "40px 24px" }}>
@@ -48,7 +54,7 @@ export default function NewsHome() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "32px" }}>
             
             {/* Article 1 - Metalhead Health */}
-            <a href="/artikel/metalhead-kesehatan" style={{ display: "block", textDecoration: "none", color: "inherit", group: "true" }} className="product-card">
+            <a href="/artikel/metalhead-kesehatan" style={{ display: "block", textDecoration: "none", color: "inherit" }} className="product-card group">
               <div style={{ height: "200px", backgroundImage: "url('/metalhead-health.png')", backgroundSize: "cover", backgroundPosition: "center", filter: "grayscale(100%) contrast(120%)", border: "2px solid var(--color-text-primary)", marginBottom: "16px" }}></div>
               <span style={{ fontSize: "0.8rem", fontWeight: "bold", padding: "4px 8px", border: "1px solid var(--color-text-primary)" }}>SAINS & MUSIK</span>
               <h4 style={{ fontSize: "1.5rem", margin: "12px 0", lineHeight: "1.2" }}>Metalhead Boleh Bangga! Ternyata, Musik Cadas Punya Pengaruh Positif Buat Kesehatan!</h4>
