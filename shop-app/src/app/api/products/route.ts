@@ -22,11 +22,11 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, slug, category, price, stock, description, image_url, status } = body;
+    const { name, slug, category, price, stock, description, image_url, status, sizes, colors } = body;
 
     const { data, error } = await supabase
       .from("products")
-      .insert([{ name, slug, category, price, stock, description, image_url, status }])
+      .insert([{ name, slug, category, price, stock, description, image_url, status, sizes, colors }])
       .select();
 
     if (error) throw error;
