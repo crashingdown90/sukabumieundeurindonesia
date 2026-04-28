@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <nav className="container nav-container" style={{ padding: "24px", borderBottom: "1px solid var(--color-border)", display: "flex", justifyContent: "space-between", alignItems: "center", position: "relative" }}>
       <a href="/" style={{ display: "flex", alignItems: "center", zIndex: 1100 }}>
-        <Image src="/logo-sukabumi.png" alt="Sukabumi Eundeur Logo" width={250} height={80} style={{ objectFit: "contain", height: "50px", width: "auto" }} priority />
+        <Image src="/logo-sukabumi.png" alt="Sukabumi Eundeur Logo" width={250} height={80} style={{ objectFit: "contain", height: "50px", width: "auto", filter: "invert(1)" }} priority />
       </a>
 
       {/* Hamburger Icon for Mobile */}

@@ -31,7 +31,7 @@ export default function Navbar() {
         position: "relative"
       }}>
         <a href="https://sukabumieundeurindonesia.com" style={{ display: "flex", alignItems: "center", zIndex: 1100 }}>
-          <Image src="/logo-sukabumi.png" alt="Sukabumi Eundeur Logo" width={250} height={80} style={{ objectFit: "contain", height: "50px", width: "auto" }} priority />
+          <Image src="/logo-sukabumi.png" alt="Sukabumi Eundeur Logo" width={250} height={80} style={{ objectFit: "contain", height: "50px", width: "auto", filter: "invert(1)" }} priority />
         </a>
 
         {/* Hamburger Icon for Mobile */}
