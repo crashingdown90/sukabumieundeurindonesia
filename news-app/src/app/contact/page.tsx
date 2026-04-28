@@ -5,7 +5,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="container" style={{ padding: "80px 24px", maxWidth: "800px", margin: "0 auto" }}>
+    <div className="container" style={{ padding: "120px 24px 80px", maxWidth: "800px", margin: "0 auto" }}>
       <h1 style={{ fontSize: "3rem", marginBottom: "32px", borderBottom: "4px solid var(--color-text-primary)", paddingBottom: "16px" }}>CONTACT US</h1>
       <div style={{ fontSize: "1.1rem", lineHeight: "1.8", color: "var(--color-text-secondary)" }}>
         <p style={{ marginBottom: "32px" }}>
