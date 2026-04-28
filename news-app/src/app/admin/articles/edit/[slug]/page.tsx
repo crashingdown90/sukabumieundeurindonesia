@@ -129,8 +129,48 @@ export default function EditArticle() {
           </div>
 
           <div>
-            <label style={labelStyle}>URL GAMBAR UTAMA</label>
-            <input name="image" value={form.image} onChange={handleChange} style={inputStyle} />
+            <label style={labelStyle}>GAMBAR UTAMA (UPLOAD / URL)</label>
+            <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+              <input name="image" value={form.image} onChange={handleChange} placeholder="URL Gambar..." style={{ ...inputStyle, flex: 1 }} />
+              <input 
+                type="file" 
+                accept="image/*"
+                id="edit-image-upload"
+                style={{ display: "none" }}
+                onChange={async (e) => {
+                  const file = e.target.files?.[0];
+                  if (!file) return;
+                  const formData = new FormData();
+                  formData.append("file", file);
+                  setMessage("Mengunggah gambar...");
+                  try {
+                    const res = await fetch("/api/upload", { method: "POST", body: formData });
+                    const data = await res.json();
+                    if (data.url) {
+                      setForm(prev => ({ ...prev, image: data.url }));
+                      setMessage("");
+                    } else {
+                      setMessage("Gagal unggah: " + data.error);
+                    }
+                  } catch (err) {
+                    setMessage("Error saat mengunggah gambar");
+                  }
+                }}
+              />
+              <button 
+                type="button" 
+                onClick={() => document.getElementById('edit-image-upload')?.click()}
+                style={{ padding: "14px 24px", backgroundColor: "var(--color-text-primary)", color: "var(--color-bg-primary)", border: "none", cursor: "pointer", fontFamily: "var(--font-heading)", letterSpacing: "1px", fontWeight: "bold" }}
+              >
+                UPLOAD GAMBAR
+              </button>
+            </div>
+            {form.image && (
+              <div style={{ marginTop: "16px", border: "1px solid var(--color-border)", padding: "8px", display: "inline-block" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={form.image} alt="Preview" style={{ maxWidth: "200px", maxHeight: "150px", objectFit: "cover" }} />
+              </div>
+            )}
           </div>
 
           <div>
