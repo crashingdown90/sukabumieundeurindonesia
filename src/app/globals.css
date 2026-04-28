@@ -115,6 +115,88 @@ h1, h2, h3, h4, h5, h6 {
   .nav-links .btn {
     padding: 6px 12px !important;
     font-size: 0.9rem !important;
+}
+
+/* Animations and Hover Effects */
+.card-hover {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 6px 6px 0 var(--color-text-primary);
+}
+
+/* Marquee Animation */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-primary);
+  padding: 12px 0;
+  border-bottom: 2px solid var(--color-text-primary);
+  width: 100%;
+}
+
+.marquee-content {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  animation: marquee 25s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Mobile Responsiveness for Navbar */
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  
+  .nav-links-wrapper {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: var(--color-bg-primary);
+    border-left: 2px solid var(--color-text-primary);
+    transition: 0.4s;
+    z-index: 1000;
+    padding-top: 100px;
+  }
+  
+  .nav-links-wrapper.mobile-open {
+    right: 0;
+  }
+  
+  .nav-links {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+  }
+
+  .nav-links > a {
+    width: 100%;
+    padding: 16px 24px !important;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .main-site-btn {
+    border-bottom: none !important;
+    border-left: none !important;
+    margin-top: 16px;
+    margin-left: 24px;
+    width: calc(100% - 48px) !important;
+    text-align: center;
   }
 }
 

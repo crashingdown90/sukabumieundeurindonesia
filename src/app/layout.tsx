@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import "./globals.css";
 
+import Navbar from "../components/Navbar";
+
 export const metadata: Metadata = {
   title: "Sukabumi Eundeur Indonesia",
   description: "Website resmi Sukabumi Eundeur Indonesia - Komunitas Musik Metal & Rock",
@@ -15,20 +17,16 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body>
-        <nav className="nav-container" style={{ padding: "24px", borderBottom: "1px solid var(--color-border)" }}>
-          <a href="/" style={{ display: "flex", alignItems: "center" }}>
-            <Image src="/logo-sukabumi.png" alt="Sukabumi Eundeur Logo" width={250} height={80} style={{ objectFit: "contain", height: "60px", width: "auto" }} priority />
-          </a>
-          <div className="nav-links">
-            <a href="/">HOME</a>
-            <a href="/about">ABOUT</a>
-            <a href="/biography">BIOGRAPHY</a>
-            <a href="/events">EVENTS</a>
-            <a href="https://news.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer">NEWS</a>
-            <a href="https://shop.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer">SHOP</a>
-            <a href="https://ticket.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: "8px 16px", fontSize: "1rem" }}>TICKETS</a>
+        
+        <Navbar />
+
+        {/* Marquee Running Text */}
+        <div className="marquee-container">
+          <div className="marquee-content">
+            🔥 SUPPORT YOUR LOCAL SCENE 🔥 100% INDEPENDENT 🔥 SUKABUMI EUNDEUR INDONESIA 🔥 UNDERGROUND MOVEMENT SINCE 2000 🔥
           </div>
-        </nav>
+        </div>
+
         <main style={{ minHeight: "calc(100vh - 180px)" }}>
           {children}
         </main>
@@ -54,13 +52,15 @@ export default function RootLayout({
               </ul>
             </div>
 
-            {/* Column 3: Portal Eksternal */}
+            {/* Column 3: Portal Eksternal & Legal */}
             <div>
-              <h4 style={{ fontSize: "1.2rem", marginBottom: "24px", letterSpacing: "1px", borderBottom: "2px solid var(--color-bg-secondary)", paddingBottom: "8px", display: "inline-block" }}>PORTAL</h4>
+              <h4 style={{ fontSize: "1.2rem", marginBottom: "24px", letterSpacing: "1px", borderBottom: "2px solid var(--color-bg-secondary)", paddingBottom: "8px", display: "inline-block" }}>PORTAL & KEBIJAKAN</h4>
               <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "12px", fontSize: "0.95rem" }}>
                 <li><a href="https://news.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>News & Article ↗</a></li>
                 <li><a href="https://shop.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>Official Merchandise ↗</a></li>
                 <li><a href="https://ticket.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>Ticket Online ↗</a></li>
+                <li style={{ marginTop: "12px" }}><a href="https://news.sukabumieundeurindonesia.com/privacy-policy" style={{ color: "var(--color-bg-secondary)" }}>Privacy Policy</a></li>
+                <li><a href="https://news.sukabumieundeurindonesia.com/terms" style={{ color: "var(--color-bg-secondary)" }}>Terms & Conditions</a></li>
               </ul>
             </div>
 
