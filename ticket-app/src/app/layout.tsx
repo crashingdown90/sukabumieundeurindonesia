@@ -60,7 +60,7 @@ export default function RootLayout({
             <div style={{ paddingRight: "20px" }}>
               <Image src="/logo-sukabumi.png" alt="Sukabumi Eundeur Logo" width={200} height={80} style={{ objectFit: "contain", height: "60px", width: "auto", filter: "grayscale(1) invert(1) brightness(2)", marginBottom: "24px" }} />
               <p style={{ color: "var(--color-bg-secondary)", lineHeight: "1.6", fontSize: "0.95rem" }}>
-                Platform Tiket Resmi Sukabumi Eundeur. 100% Independent. Dukung pergerakan skena lokal dengan membeli tiket resmi.
+                Portal distribusi tiket resmi yang dikelola oleh PT. Sukabumi Eundeur Holding. Kami berkomitmen menghadirkan layanan transaksi yang aman dan terpercaya untuk mendukung ekosistem acara independen.
               </p>
             </div>
 
