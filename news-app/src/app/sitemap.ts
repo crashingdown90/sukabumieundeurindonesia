@@ -1,8 +1,7 @@
 import { MetadataRoute } from 'next';
-import fs from "fs";
-import path from "path";
+import { supabase } from "@/lib/supabase";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://news.sukabumieundeurindonesia.com";
 
   // Base routes
@@ -23,19 +22,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Read articles for dynamic routes
   try {
-    const filePath = path.join(process.cwd(), "src/data/articles.json");
-    if (fs.existsSync(filePath)) {
-      const rawData = fs.readFileSync(filePath, "utf-8");
-      const articles = JSON.parse(rawData);
-      
-      const articleRoutes = articles
-        .filter((a: any) => a.status === "published")
-        .map((a: any) => ({
-          url: `${baseUrl}/artikel/${a.slug}`,
-          lastModified: new Date(a.date),
-          changeFrequency: 'weekly' as const,
-          priority: 0.9,
-        }));
+    const { data: articles, error } = await supabase
+      .from("articles")
+      .select("slug, created_at")
+      .eq("status", "published");
+
+    if (!error && articles) {
+      const articleRoutes = articles.map((a: any) => ({
+        url: `${baseUrl}/artikel/${a.slug}`,
+        lastModified: new Date(a.created_at),
+        changeFrequency: 'weekly' as const,
+        priority: 0.9,
+      }));
         
       return [...routes, ...articleRoutes];
     }

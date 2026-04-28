@@ -1,61 +1,90 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
-
-const DATA_PATH = path.join(process.cwd(), "src/data/articles.json");
-
-function readArticles() {
-  const raw = fs.readFileSync(DATA_PATH, "utf-8");
-  return JSON.parse(raw);
-}
-
-function writeArticles(data: unknown[]) {
-  fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2), "utf-8");
-}
+import { supabase } from "@/lib/supabase";
 
 // GET single article by slug
 export async function GET(_request: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const articles = readArticles();
-  const article = articles.find((a: { slug: string }) => a.slug === slug);
+  
+  const { data: article, error } = await supabase
+    .from("articles")
+    .select("*")
+    .eq("slug", slug)
+    .single();
 
-  if (!article) {
+  if (error || !article) {
     return NextResponse.json({ error: "Article not found" }, { status: 404 });
   }
-  return NextResponse.json(article);
+
+  const formattedArticle = {
+    id: article.id,
+    slug: article.slug,
+    title: article.title,
+    category: article.category,
+    author: article.author,
+    date: new Date(article.created_at).toISOString().split("T")[0],
+    image: article.image || "",
+    metaDescription: article.meta_description || "",
+    content: article.content,
+    status: article.status,
+  };
+
+  return NextResponse.json(formattedArticle);
 }
 
 // PUT update article by slug
 export async function PUT(request: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const body = await request.json();
-  const articles = readArticles();
-  const index = articles.findIndex((a: { slug: string }) => a.slug === slug);
 
-  if (index === -1) {
-    return NextResponse.json({ error: "Article not found" }, { status: 404 });
-  }
-
-  articles[index] = {
-    ...articles[index],
-    ...body,
-    updatedAt: new Date().toISOString(),
+  const updateData = {
+    title: body.title,
+    category: body.category,
+    author: body.author,
+    image: body.image,
+    meta_description: body.metaDescription,
+    content: body.content,
+    status: body.status,
   };
 
-  writeArticles(articles);
-  return NextResponse.json(articles[index]);
+  const { data, error } = await supabase
+    .from("articles")
+    .update(updateData)
+    .eq("slug", slug)
+    .select()
+    .single();
+
+  if (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  const formattedArticle = {
+    id: data.id,
+    slug: data.slug,
+    title: data.title,
+    category: data.category,
+    author: data.author,
+    date: new Date(data.created_at).toISOString().split("T")[0],
+    image: data.image || "",
+    metaDescription: data.meta_description || "",
+    content: data.content,
+    status: data.status,
+  };
+
+  return NextResponse.json(formattedArticle);
 }
 
 // DELETE article by slug
 export async function DELETE(_request: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const articles = readArticles();
-  const filtered = articles.filter((a: { slug: string }) => a.slug !== slug);
+  
+  const { error } = await supabase
+    .from("articles")
+    .delete()
+    .eq("slug", slug);
 
-  if (filtered.length === articles.length) {
-    return NextResponse.json({ error: "Article not found" }, { status: 404 });
+  if (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  writeArticles(filtered);
   return NextResponse.json({ success: true });
 }

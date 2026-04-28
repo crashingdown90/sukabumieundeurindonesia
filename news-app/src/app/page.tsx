@@ -1,12 +1,26 @@
-import fs from "fs";
-import path from "path";
+import { supabase } from "@/lib/supabase";
 
-// Fetch articles from JSON
+// Fetch articles from Supabase
 async function getArticles() {
-  const filePath = path.join(process.cwd(), "src/data/articles.json");
-  const rawData = fs.readFileSync(filePath, "utf-8");
-  const articles = JSON.parse(rawData);
-  return articles.filter((a: any) => a.status === "published");
+  const { data, error } = await supabase
+    .from("articles")
+    .select("*")
+    .eq("status", "published")
+    .order("created_at", { ascending: false });
+
+  if (error || !data) return [];
+  
+  return data.map(a => ({
+    id: a.id,
+    slug: a.slug,
+    title: a.title,
+    category: a.category,
+    author: a.author,
+    date: new Date(a.created_at).toISOString().split("T")[0],
+    image: a.image || "",
+    metaDescription: a.meta_description || "",
+    content: a.content,
+  }));
 }
 
 export default async function NewsHome() {

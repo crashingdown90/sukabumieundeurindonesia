@@ -1,15 +1,30 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import fs from "fs";
-import path from "path";
+import { supabase } from "@/lib/supabase";
 
 // This runs on the server
 async function getArticle(slug: string) {
-  const filePath = path.join(process.cwd(), "src/data/articles.json");
-  const rawData = fs.readFileSync(filePath, "utf-8");
-  const articles = JSON.parse(rawData);
-  const article = articles.find((a: any) => a.slug === slug && a.status === "published");
-  return article || null;
+  const { data: article, error } = await supabase
+    .from("articles")
+    .select("*")
+    .eq("slug", slug)
+    .eq("status", "published")
+    .single();
+
+  if (error || !article) return null;
+
+  return {
+    id: article.id,
+    slug: article.slug,
+    title: article.title,
+    category: article.category,
+    author: article.author,
+    date: new Date(article.created_at).toISOString().split("T")[0],
+    image: article.image || "",
+    metaDescription: article.meta_description || "",
+    content: article.content,
+    status: article.status,
+  };
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
