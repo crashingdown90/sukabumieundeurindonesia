@@ -149,7 +149,7 @@ export default function BiographyPage() {
           <div style={{ width: "60px", height: "4px", backgroundColor: "var(--color-text-primary)", margin: "16px auto" }}></div>
         </div>
 
-        <div style={{ maxWidth: "1000px", margin: "0 auto", position: "relative" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto", position: "relative" }}>
           {/* Garis Vertikal Timeline */}
           <div style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", width: "4px", height: "100%", backgroundColor: "var(--color-text-primary)", zIndex: 1, display: "none" }} className="timeline-line"></div>
 
@@ -159,28 +159,28 @@ export default function BiographyPage() {
               flexDirection: index % 2 === 0 ? "row" : "row-reverse",
               justifyContent: "space-between",
               alignItems: "stretch",
-              marginBottom: "80px",
-              gap: "40px",
+              marginBottom: "40px",
+              gap: "24px",
               position: "relative",
               zIndex: 2
             }}>
               
               {/* Konten Teks */}
-              <div style={{ flex: "1", padding: "32px", border: "2px solid var(--color-text-primary)", backgroundColor: "var(--color-bg-primary)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                <span style={{ display: "inline-block", backgroundColor: "var(--color-text-primary)", color: "var(--color-bg-primary)", padding: "4px 12px", fontWeight: "bold", fontSize: "0.9rem", marginBottom: "16px", width: "fit-content" }}>
+              <div style={{ flex: "1", padding: "24px", border: "2px solid var(--color-text-primary)", backgroundColor: "var(--color-bg-primary)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <span style={{ display: "inline-block", backgroundColor: "var(--color-text-primary)", color: "var(--color-bg-primary)", padding: "4px 8px", fontWeight: "bold", fontSize: "0.8rem", marginBottom: "12px", width: "fit-content" }}>
                   {event.date}
                 </span>
-                <h2 style={{ fontSize: "2.5rem", marginBottom: "16px", lineHeight: "1.1" }}>{event.title}</h2>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: "bold", marginBottom: "24px", color: "var(--color-text-secondary)" }}>
+                <h2 style={{ fontSize: "1.8rem", marginBottom: "12px", lineHeight: "1.2" }}>{event.title}</h2>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", fontWeight: "bold", marginBottom: "16px", color: "var(--color-text-secondary)", fontSize: "0.9rem" }}>
                   <span style={{ color: "var(--color-text-primary)" }}>&#9654;</span> {event.location}
                 </div>
-                <p style={{ fontSize: "1.1rem", lineHeight: "1.6", color: "var(--color-text-secondary)" }}>
+                <p style={{ fontSize: "0.95rem", lineHeight: "1.6", color: "var(--color-text-secondary)" }}>
                   {event.desc}
                 </p>
               </div>
 
               {/* Injeksi Visual Dokumentasi Era */}
-              <div style={{ flex: "1", minHeight: "300px", position: "relative", border: "4px solid var(--color-text-primary)" }}>
+              <div style={{ flex: "1", minHeight: "200px", position: "relative", border: "4px solid var(--color-text-primary)" }}>
                 <Image 
                   src={event.img} 
                   alt={event.title} 
