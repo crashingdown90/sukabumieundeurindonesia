@@ -14,28 +14,28 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
   return (
     <>
-      <div style={{ backgroundColor: "var(--color-text-primary)", color: "var(--color-bg-primary)", padding: "80px 24px", textAlign: "center", borderBottom: "4px solid var(--color-bg-primary)" }}>
-        <h1 style={{ fontSize: "clamp(3rem, 8vw, 6rem)", marginBottom: "16px", lineHeight: "1" }}>{categoryName}</h1>
-        <p style={{ fontSize: "1.2rem", letterSpacing: "2px" }}>MENAMPILKAN SEMUA EVENT DI KATEGORI INI</p>
+      <div style={{ backgroundColor: "var(--color-bg-secondary)", borderBottom: "1px solid var(--color-border)", padding: "60px 24px", textAlign: "center" }}>
+        <h1 style={{ fontSize: "clamp(2rem, 5vw, 4rem)", marginBottom: "16px", fontFamily: "var(--font-heading)", letterSpacing: "2px" }}>{categoryName}</h1>
+        <p style={{ fontSize: "1rem", color: "var(--color-text-secondary)", letterSpacing: "2px" }}>MENAMPILKAN SEMUA EVENT DI KATEGORI INI</p>
       </div>
 
       <div className="container" style={{ padding: "80px 24px", minHeight: "50vh" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
           
-          <div className="ticket-card" style={{ opacity: 0.7 }}>
-            <div className="ticket-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1000&auto=format&fit=crop')" }}></div>
-            <div className="ticket-content">
-              <div style={{ display: "flex", gap: "16px", marginBottom: "16px", fontSize: "0.9rem", fontWeight: "bold", color: "var(--color-bg-primary)", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", border: "1px solid var(--color-border)", backgroundColor: "var(--color-bg-secondary)", flexDirection: "column", opacity: 0.7 }}>
+            <div style={{ height: "200px", backgroundImage: "url('https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1000&auto=format&fit=crop')", backgroundSize: "cover", backgroundPosition: "center", borderBottom: "1px solid var(--color-border)" }}></div>
+            <div style={{ padding: "32px", flex: 1, display: "flex", flexDirection: "column" }}>
+              <div style={{ display: "flex", gap: "16px", marginBottom: "16px", fontSize: "0.8rem", fontWeight: "bold", color: "var(--color-bg-primary)", fontFamily: "var(--font-heading)", flexWrap: "wrap" }}>
                 <span style={{ backgroundColor: "var(--color-text-primary)", padding: "4px 12px" }}>TBA</span>
                 <span style={{ backgroundColor: "var(--color-text-primary)", padding: "4px 12px" }}>SUKABUMI</span>
               </div>
-              <h3 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", marginBottom: "8px", lineHeight: "1.1" }}>{categoryName} GIG VOL. 1</h3>
-              <p style={{ fontSize: "1.1rem", color: "var(--color-text-secondary)", marginBottom: "24px" }}>
+              <h3 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", marginBottom: "8px", fontFamily: "var(--font-heading)", letterSpacing: "1px" }}>{categoryName} GIG VOL. 1</h3>
+              <p style={{ fontSize: "1rem", color: "var(--color-text-secondary)", marginBottom: "24px", flex: 1 }}>
                 Detail event belum diumumkan. Silakan kembali lagi nanti untuk informasi lineup dan harga tiket.
               </p>
-              <div style={{ display: "flex", alignItems: "center", gap: "24px", flexWrap: "wrap" }}>
-                <span style={{ fontSize: "1.8rem", fontWeight: "bold", whiteSpace: "nowrap" }}>Rp --</span>
-                <button className="btn" style={{ padding: "12px 32px", opacity: 0.5, cursor: "not-allowed", border: "4px solid var(--color-text-primary)" }} disabled>COMING SOON</button>
+              <div style={{ display: "flex", alignItems: "center", gap: "24px", flexWrap: "wrap", borderTop: "1px solid var(--color-border)", paddingTop: "24px", marginTop: "auto" }}>
+                <span style={{ fontSize: "1.5rem", fontWeight: "bold", fontFamily: "var(--font-heading)", whiteSpace: "nowrap" }}>Rp --</span>
+                <button style={{ padding: "12px 32px", fontSize: "0.9rem", fontFamily: "var(--font-heading)", letterSpacing: "1px", backgroundColor: "transparent", color: "var(--color-text-primary)", border: "1px solid var(--color-border)", cursor: "not-allowed", opacity: 0.5 }} disabled>COMING SOON</button>
               </div>
             </div>
           </div>
