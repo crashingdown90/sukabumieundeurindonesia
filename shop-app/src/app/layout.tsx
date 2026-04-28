@@ -25,11 +25,50 @@ export default function RootLayout({
             {/* ARTISTS DROPDOWN */}
             <div className="nav-item">
               <a href="/#catalog">ARTISTS <span style={{ fontSize: "0.7rem" }}>▼</span></a>
-              <div className="dropdown-menu">
-                <a href="#" className="dropdown-link">SUKABUMI EUNDEUR</a>
-                <a href="#" className="dropdown-link">REROUTE TO ROOTS</a>
-                <a href="#" className="dropdown-link">TOTAL AGGRESSION</a>
-                <a href="#" className="dropdown-link">SOUND REVIVAL</a>
+              <div className="dropdown-mega-artists">
+                
+                <div className="dropdown-column">
+                  <div className="dropdown-header">HIGHLIGHTED STORES</div>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Sukabumi Eundeur</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Reroute To Roots</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Total Aggression</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Sound Revival</a>
+                </div>
+
+                <div className="dropdown-column">
+                  <div className="dropdown-header">#-F</div>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Avhath</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Beside</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Betrayer</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Bowlong</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Burgerkill</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>DeadSquad</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Death Vomit</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Down For Life</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Forgotten</a>
+                </div>
+
+                <div className="dropdown-column">
+                  <div className="dropdown-header">G-P</div>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Hellcrust</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Humiliation</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Jasad</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Koil</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Noxa</a>
+                </div>
+
+                <div className="dropdown-column">
+                  <div className="dropdown-header">Q-Z</div>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Repton</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Revenge The Fate</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Rosemary</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Rotor</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Seringai</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Siksakubur</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>St. Loco</a>
+                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Straightout</a>
+                </div>
+
               </div>
             </div>
 

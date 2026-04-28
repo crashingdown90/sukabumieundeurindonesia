@@ -194,11 +194,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-item:hover .dropdown-menu,
-.nav-item:hover .dropdown-mega {
+.nav-item:hover .dropdown-mega,
+.nav-item:hover .dropdown-mega-artists {
   display: grid;
 }
 
-.nav-item:hover .dropdown-menu:not(.dropdown-mega) {
+.dropdown-mega-artists {
+  min-width: 800px;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-bg-primary);
+  border: 2px solid var(--color-text-primary);
+  z-index: 100;
+  padding: 32px;
+  box-shadow: 6px 6px 0 rgba(0,0,0,1);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.nav-item:hover .dropdown-menu:not(.dropdown-mega):not(.dropdown-mega-artists) {
   display: flex;
   flex-direction: column;
   gap: 16px;
