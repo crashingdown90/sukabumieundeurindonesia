@@ -23,14 +23,8 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="container nav-container" style={{ 
-        display: "flex", 
-        justifyContent: "space-between", 
-        alignItems: "center", 
-        padding: "24px",
-        position: "relative"
-      }}>
-        <a href="https://sukabumieundeurindonesia.com" style={{ display: "flex", alignItems: "center", zIndex: 1100 }}>
+      <nav className="container nav-container" style={{ padding: "24px", borderBottom: "4px solid var(--color-border)", display: "flex", justifyContent: "space-between", alignItems: "center", position: "relative" }}>
+        <a href="/" style={{ display: "flex", alignItems: "center", zIndex: 1100 }}>
           <Image src="/logo-sukabumi.png" alt="Sukabumi Eundeur Logo" width={250} height={80} style={{ objectFit: "contain", height: "50px", width: "auto", filter: "invert(1)" }} priority />
         </a>
 
@@ -38,103 +32,95 @@ export default function Navbar() {
         <div 
           className="hamburger" 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          style={{ cursor: "pointer", zIndex: 1100 }}
+          style={{ cursor: "pointer", zIndex: 1100, padding: "8px" }}
         >
-          <div style={{ width: "30px", height: "3px", backgroundColor: isMobileMenuOpen ? "var(--color-bg-primary)" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s", transform: isMobileMenuOpen ? "rotate(-45deg) translate(-5px, 6px)" : "none" }}></div>
-          <div style={{ width: "30px", height: "3px", backgroundColor: isMobileMenuOpen ? "transparent" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s" }}></div>
-          <div style={{ width: "30px", height: "3px", backgroundColor: isMobileMenuOpen ? "var(--color-bg-primary)" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s", transform: isMobileMenuOpen ? "rotate(45deg) translate(-5px, -6px)" : "none" }}></div>
+          <div style={{ width: "36px", height: "4px", backgroundColor: isMobileMenuOpen ? "var(--color-bg-primary)" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s", transform: isMobileMenuOpen ? "rotate(-45deg) translate(-6px, 8px)" : "none" }}></div>
+          <div style={{ width: "36px", height: "4px", backgroundColor: isMobileMenuOpen ? "transparent" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s" }}></div>
+          <div style={{ width: "36px", height: "4px", backgroundColor: isMobileMenuOpen ? "var(--color-bg-primary)" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s", transform: isMobileMenuOpen ? "rotate(45deg) translate(-6px, -8px)" : "none" }}></div>
         </div>
 
         {/* Desktop & Mobile Navigation Links */}
         <div className={`nav-links-wrapper ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-          <div className="nav-links" style={{ fontSize: "0.95rem", letterSpacing: "1px", display: "flex", gap: "24px", alignItems: "center" }}>
-            <a href="/" style={{ padding: "24px 0" }} onClick={() => setIsMobileMenuOpen(false)}>HOME</a>
+          <div className="nav-links" style={{ fontSize: "0.95rem", letterSpacing: "1px", display: "flex", gap: "24px", alignItems: "center", fontWeight: "bold" }}>
+            
+            <a href="/" style={{ padding: "24px 0", width: isMobileMenuOpen ? "100%" : "auto", borderBottom: isMobileMenuOpen ? "1px solid var(--color-border)" : "none" }} onClick={() => setIsMobileMenuOpen(false)}>HOME</a>
             
             {/* ARTISTS DROPDOWN */}
-            <div className="nav-item">
+            <div className="nav-item" style={{ width: isMobileMenuOpen ? "100%" : "auto" }}>
               <a href="/#catalog" onClick={(e) => toggleDropdown("artists", e)} style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
                 ARTISTS <span style={{ fontSize: "0.7rem", transition: "0.2s", transform: activeDropdown === "artists" ? "rotate(180deg)" : "none" }}>▼</span>
               </a>
-              <div className={`dropdown-mega-artists ${activeDropdown === "artists" ? "force-open" : ""}`}>
+              <div className={`dropdown-mega-artists ${activeDropdown === "artists" ? "force-open" : ""}`} style={isMobileMenuOpen ? { padding: "16px 0", borderTop: "1px solid var(--color-border)", gap: "16px" } : { border: "4px solid var(--color-text-primary)", boxShadow: "8px 8px 0 var(--color-text-primary)" }}>
                 <div className="dropdown-column">
                   <div className="dropdown-header">HIGHLIGHTED STORES</div>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Sukabumi Eundeur</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Reroute To Roots</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Total Aggression</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Sound Revival</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>Sukabumi Eundeur</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>Reroute To Roots</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>Total Aggression</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0" }} onClick={() => setIsMobileMenuOpen(false)}>Sound Revival</a>
                 </div>
                 <div className="dropdown-column">
                   <div className="dropdown-header">#-F</div>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Avhath</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Beside</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Betrayer</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Bowlong</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Burgerkill</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>DeadSquad</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Death Vomit</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Down For Life</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Forgotten</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }}>Burgerkill</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }}>DeadSquad</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0" }}>Forgotten</a>
                 </div>
                 <div className="dropdown-column">
                   <div className="dropdown-header">G-P</div>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Hellcrust</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Humiliation</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Jasad</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Koil</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Noxa</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }}>Jasad</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }}>Koil</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0" }}>Noxa</a>
                 </div>
                 <div className="dropdown-column">
                   <div className="dropdown-header">Q-Z</div>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Repton</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Revenge The Fate</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Rosemary</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Rotor</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Seringai</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Siksakubur</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>St. Loco</a>
-                  <a href="#" className="dropdown-link" style={{ fontSize: "0.85rem" }}>Straightout</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }}>Revenge The Fate</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }}>Seringai</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0" }}>Siksakubur</a>
                 </div>
               </div>
             </div>
 
             {/* SHOP MEGA MENU */}
-            <div className="nav-item">
+            <div className="nav-item" style={{ width: isMobileMenuOpen ? "100%" : "auto" }}>
               <a href="/#catalog" onClick={(e) => toggleDropdown("shop", e)} style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
                 SHOP <span style={{ fontSize: "0.7rem", transition: "0.2s", transform: activeDropdown === "shop" ? "rotate(180deg)" : "none" }}>▼</span>
               </a>
-              <div className={`dropdown-mega ${activeDropdown === "shop" ? "force-open" : ""}`}>
+              <div className={`dropdown-mega ${activeDropdown === "shop" ? "force-open" : ""}`} style={isMobileMenuOpen ? { padding: "16px 0", borderTop: "1px solid var(--color-border)", gap: "16px" } : { border: "4px solid var(--color-text-primary)", boxShadow: "8px 8px 0 var(--color-text-primary)" }}>
                 <div className="dropdown-column">
                   <a href="#" className="dropdown-header">CLEARANCE</a>
                   <a href="#" className="dropdown-header" style={{ marginTop: "16px" }}>ALL PRODUCTS</a>
                 </div>
                 <div className="dropdown-column">
                   <div className="dropdown-header">MUSIC</div>
-                  <a href="#" className="dropdown-link">Vinyl</a>
-                  <a href="#" className="dropdown-link">CDs</a>
-                  <a href="#" className="dropdown-link">Cassettes</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }}>Vinyl</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }}>CDs</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0" }}>Cassettes</a>
                 </div>
                 <div className="dropdown-column">
                   <div className="dropdown-header">APPAREL</div>
-                  <a href="#" className="dropdown-link">T-SHIRTS</a>
-                  <a href="#" className="dropdown-link">OUTERWEAR</a>
-                  <a href="#" className="dropdown-link">ACCESSORIES</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }}>T-SHIRTS</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }}>OUTERWEAR</a>
+                  <a href="#" className="dropdown-link" style={{ padding: "8px 0" }}>ACCESSORIES</a>
                 </div>
               </div>
             </div>
 
             {/* HELP DROPDOWN */}
-            <div className="nav-item">
+            <div className="nav-item" style={{ width: isMobileMenuOpen ? "100%" : "auto" }}>
               <a href="/faq" onClick={(e) => toggleDropdown("help", e)} style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
                 HELP <span style={{ fontSize: "0.7rem", transition: "0.2s", transform: activeDropdown === "help" ? "rotate(180deg)" : "none" }}>▼</span>
               </a>
-              <div className={`dropdown-menu ${activeDropdown === "help" ? "force-open" : ""}`}>
-                <a href="/shipping" className="dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>SHIPPING</a>
-                <a href="/terms" className="dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>TERMS & CONDITIONS</a>
-                <a href="/faq" className="dropdown-link" onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
+              <div className={`dropdown-menu ${activeDropdown === "help" ? "force-open" : ""}`} style={isMobileMenuOpen ? { padding: "16px 0", borderTop: "1px solid var(--color-border)" } : { border: "4px solid var(--color-text-primary)", boxShadow: "8px 8px 0 var(--color-text-primary)" }}>
+                <a href="/shipping" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>SHIPPING</a>
+                <a href="/terms" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>TERMS & CONDITIONS</a>
+                <a href="/faq" className="dropdown-link" style={{ padding: "8px 0" }} onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
               </div>
             </div>
 
-            <a href="https://sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" className="main-site-btn">MAIN SITE</a>
+            <div className="nav-item" style={{ marginLeft: isMobileMenuOpen ? "0" : "auto", width: isMobileMenuOpen ? "100%" : "auto" }}>
+              <a href="/login" style={{ padding: "8px 16px", fontSize: "1rem", border: "2px solid var(--color-text-primary)", fontWeight: "bold" }} onClick={() => setIsMobileMenuOpen(false)}>LOGIN / REGISTER</a>
+            </div>
+
+            <a href="https://sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary main-site-btn" style={{ padding: "8px 16px", fontSize: "1rem" }} onClick={() => setIsMobileMenuOpen(false)}>MAIN SITE</a>
           </div>
         </div>
       </nav>
