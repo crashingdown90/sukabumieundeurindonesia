@@ -19,12 +19,57 @@ export default function RootLayout({
           <a href="https://sukabumieundeurindonesia.com" style={{ display: "flex", alignItems: "center" }}>
             <Image src="/logo-sukabumi.png" alt="Sukabumi Eundeur Logo" width={250} height={80} style={{ objectFit: "contain", height: "60px", width: "auto" }} priority />
           </a>
-          <div className="nav-links" style={{ fontSize: "0.95rem", letterSpacing: "1px" }}>
-            <a href="/">HOME</a>
-            <a href="/#catalog">STORES / ARTISTS</a>
-            <a href="/#catalog">CLOTHING</a>
-            <a href="/#catalog">ACCESSORIES</a>
-            <a href="/shipping">SHIPPING</a>
+          <div className="nav-links" style={{ fontSize: "0.95rem", letterSpacing: "1px", display: "flex", gap: "24px", alignItems: "center" }}>
+            <a href="/" style={{ padding: "24px 0" }}>HOME</a>
+            
+            {/* ARTISTS DROPDOWN */}
+            <div className="nav-item">
+              <a href="/#catalog">ARTISTS <span style={{ fontSize: "0.7rem" }}>▼</span></a>
+              <div className="dropdown-menu">
+                <a href="#" className="dropdown-link">SUKABUMI EUNDEUR</a>
+                <a href="#" className="dropdown-link">REROUTE TO ROOTS</a>
+                <a href="#" className="dropdown-link">TOTAL AGGRESSION</a>
+                <a href="#" className="dropdown-link">SOUND REVIVAL</a>
+              </div>
+            </div>
+
+            {/* SHOP MEGA MENU */}
+            <div className="nav-item">
+              <a href="/#catalog">SHOP <span style={{ fontSize: "0.7rem" }}>▼</span></a>
+              <div className="dropdown-mega">
+                
+                <div className="dropdown-column">
+                  <a href="#" className="dropdown-header">CLEARANCE</a>
+                  <a href="#" className="dropdown-header" style={{ marginTop: "16px" }}>ALL PRODUCTS</a>
+                </div>
+
+                <div className="dropdown-column">
+                  <div className="dropdown-header">MUSIC</div>
+                  <a href="#" className="dropdown-link">Vinyl</a>
+                  <a href="#" className="dropdown-link">CDs</a>
+                  <a href="#" className="dropdown-link">Cassettes</a>
+                </div>
+
+                <div className="dropdown-column">
+                  <div className="dropdown-header">APPAREL</div>
+                  <a href="#" className="dropdown-link">T-SHIRTS</a>
+                  <a href="#" className="dropdown-link">OUTERWEAR</a>
+                  <a href="#" className="dropdown-link">ACCESSORIES</a>
+                </div>
+
+              </div>
+            </div>
+
+            {/* HELP DROPDOWN */}
+            <div className="nav-item">
+              <a href="/faq">HELP <span style={{ fontSize: "0.7rem" }}>▼</span></a>
+              <div className="dropdown-menu">
+                <a href="/shipping" className="dropdown-link">SHIPPING</a>
+                <a href="/terms" className="dropdown-link">TERMS & CONDITIONS</a>
+                <a href="/faq" className="dropdown-link">FAQ</a>
+              </div>
+            </div>
+
             <a href="https://sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" style={{ borderLeft: "2px solid var(--color-text-primary)", paddingLeft: "16px", marginLeft: "8px" }}>MAIN SITE</a>
           </div>
         </nav>

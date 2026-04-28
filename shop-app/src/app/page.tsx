@@ -111,10 +111,10 @@ export default function Shop() {
 
       <div id="catalog" className="container" style={{ padding: "80px 24px" }}>
         
-        {/* Featured Artists / Stores Section (MerchNow Concept) */}
+        {/* Featured Artists Section */}
         <section style={{ marginBottom: "80px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", borderBottom: "2px solid var(--color-border)", paddingBottom: "16px", marginBottom: "32px" }}>
-            <h2 style={{ fontSize: "2rem" }}>FEATURED STORES</h2>
+            <h2 style={{ fontSize: "2rem" }}>ARTISTS</h2>
             <a href="/" style={{ fontSize: "0.9rem", fontWeight: "bold", textDecoration: "underline" }}>View All Artists</a>
           </div>
           
