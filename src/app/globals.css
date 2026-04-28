@@ -195,47 +195,55 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Footer Minimalist (Accordion on Mobile) */
-.footer-details summary {
-  list-style: none;
-  cursor: pointer;
-}
-.footer-details summary::-webkit-details-marker {
-  display: none;
-}
-.footer-details summary::after {
-  content: '+';
-  float: right;
-  font-family: monospace;
-  font-size: 1.2rem;
+/* Footer Minimalist (Checkbox Hack Accordion) */
+.footer-toggle {
   display: none;
 }
 
+.footer-summary {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--color-bg-secondary);
+  padding-bottom: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.footer-content {
+  display: flex !important;
+  margin-top: 16px;
+}
+
 @media (max-width: 768px) {
-  .footer-details summary::after {
-    display: inline-block;
+  .footer-summary::after {
+    content: '+';
+    float: right;
+    font-family: monospace;
+    font-size: 1.2rem;
   }
-  .footer-details[open] summary::after {
+  
+  .footer-toggle:checked + .footer-summary::after {
     content: '-';
   }
-  .footer-details ul {
-    margin-top: 16px;
-    padding-bottom: 16px;
+
+  .footer-content {
+    display: none !important;
   }
-}
-@media (min-width: 769px) {
-  .footer-details {
-    pointer-events: none;
-  }
-  .footer-details summary {
-    cursor: default;
-  }
-  /* Memaksa list muncul di desktop walaupun <details> tidak memiliki atribut 'open' */
-  .footer-details:not([open]) ul {
+
+  .footer-toggle:checked ~ .footer-content {
     display: flex !important;
   }
-  .footer-details ul {
-    pointer-events: auto;
+}
+
+@media (min-width: 769px) {
+  .footer-summary {
+    cursor: default;
+  }
+  
+  .footer-summary::after {
+    display: none;
   }
 }
 

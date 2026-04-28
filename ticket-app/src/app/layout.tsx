@@ -65,34 +65,37 @@ export default function RootLayout({
             </div>
 
             {/* Column 2: Navigasi Utama */}
-            <details className="footer-details">
-              <summary style={{ fontSize: "1.2rem", marginBottom: "8px", letterSpacing: "1px", borderBottom: "2px solid var(--color-bg-secondary)", paddingBottom: "8px", outline: "none" }}>SITEMAP</summary>
-              <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "12px", fontSize: "0.95rem" }}>
+            <div className="footer-accordion">
+              <input type="checkbox" id="footer-toggle-1" className="footer-toggle" />
+              <label htmlFor="footer-toggle-1" className="footer-summary">SITEMAP</label>
+              <ul className="footer-content" style={{ listStyle: "none", padding: 0, flexDirection: "column", gap: "12px", fontSize: "0.95rem" }}>
                 <li><a href="/" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>Events</a></li>
                 <li><a href="/my-tickets" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>My Tickets</a></li>
                 <li><a href="/help" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>Help & FAQ</a></li>
               </ul>
-            </details>
+            </div>
 
             {/* Column 3: Portal Eksternal & Legal */}
-            <details className="footer-details">
-              <summary style={{ fontSize: "1.2rem", marginBottom: "8px", letterSpacing: "1px", borderBottom: "2px solid var(--color-bg-secondary)", paddingBottom: "8px", outline: "none" }}>PORTAL & KEBIJAKAN</summary>
-              <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "12px", fontSize: "0.95rem" }}>
+            <div className="footer-accordion">
+              <input type="checkbox" id="footer-toggle-2" className="footer-toggle" />
+              <label htmlFor="footer-toggle-2" className="footer-summary">PORTAL & KEBIJAKAN</label>
+              <ul className="footer-content" style={{ listStyle: "none", padding: 0, flexDirection: "column", gap: "12px", fontSize: "0.95rem" }}>
                 <li><a href="https://sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>Main Site ↗</a></li>
                 <li><a href="https://shop.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>Official Merchandise ↗</a></li>
                 <li style={{ marginTop: "12px" }}><a href="https://news.sukabumieundeurindonesia.com/privacy-policy" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-bg-secondary)" }}>Privacy Policy</a></li>
                 <li><a href="https://news.sukabumieundeurindonesia.com/terms" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-bg-secondary)" }}>Terms & Conditions</a></li>
               </ul>
-            </details>
+            </div>
 
             {/* Column 4: Kontak */}
-            <details className="footer-details">
-              <summary style={{ fontSize: "1.2rem", marginBottom: "8px", letterSpacing: "1px", borderBottom: "2px solid var(--color-bg-secondary)", paddingBottom: "8px", outline: "none" }}>CONTACT TICKETBOX</summary>
-              <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "12px", color: "var(--color-bg-secondary)", fontSize: "0.95rem" }}>
+            <div className="footer-accordion">
+              <input type="checkbox" id="footer-toggle-3" className="footer-toggle" />
+              <label htmlFor="footer-toggle-3" className="footer-summary">CONTACT TICKETBOX</label>
+              <ul className="footer-content" style={{ listStyle: "none", padding: 0, flexDirection: "column", gap: "12px", color: "var(--color-bg-secondary)", fontSize: "0.95rem" }}>
                 <li>Email: ticket@sukabumieundeurindonesia.com</li>
                 <li>WA: +62 812 3456 7890</li>
               </ul>
-            </details>
+            </div>
 
           </div>
           

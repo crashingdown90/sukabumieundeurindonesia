@@ -37,37 +37,40 @@ export default function RootLayout({
             </div>
 
             {/* Column 2: Navigasi Utama */}
-            <details className="footer-details">
-              <summary style={{ fontSize: "1.2rem", marginBottom: "8px", letterSpacing: "1px", borderBottom: "2px solid var(--color-bg-secondary)", paddingBottom: "8px", outline: "none" }}>SITEMAP</summary>
-              <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "12px", fontSize: "0.95rem" }}>
+            <div className="footer-accordion">
+              <input type="checkbox" id="footer-toggle-1" className="footer-toggle" />
+              <label htmlFor="footer-toggle-1" className="footer-summary">SITEMAP</label>
+              <ul className="footer-content" style={{ listStyle: "none", padding: 0, flexDirection: "column", gap: "12px", fontSize: "0.95rem" }}>
                 <li><a href="/" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>Home</a></li>
                 <li><a href="/about" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>About Us</a></li>
                 <li><a href="/biography" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>Biography</a></li>
                 <li><a href="/events" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>Events & Gigs</a></li>
               </ul>
-            </details>
+            </div>
 
             {/* Column 3: Portal Eksternal & Legal */}
-            <details className="footer-details">
-              <summary style={{ fontSize: "1.2rem", marginBottom: "8px", letterSpacing: "1px", borderBottom: "2px solid var(--color-bg-secondary)", paddingBottom: "8px", outline: "none" }}>PORTAL & KEBIJAKAN</summary>
-              <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "12px", fontSize: "0.95rem" }}>
+            <div className="footer-accordion">
+              <input type="checkbox" id="footer-toggle-2" className="footer-toggle" />
+              <label htmlFor="footer-toggle-2" className="footer-summary">PORTAL & KEBIJAKAN</label>
+              <ul className="footer-content" style={{ listStyle: "none", padding: 0, flexDirection: "column", gap: "12px", fontSize: "0.95rem" }}>
                 <li><a href="https://news.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>News & Article ↗</a></li>
                 <li><a href="https://shop.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>Official Merchandise ↗</a></li>
                 <li><a href="https://ticket.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>Ticket Online ↗</a></li>
                 <li style={{ marginTop: "12px" }}><a href="https://news.sukabumieundeurindonesia.com/privacy-policy" style={{ color: "var(--color-bg-secondary)" }}>Privacy Policy</a></li>
                 <li><a href="https://news.sukabumieundeurindonesia.com/terms" style={{ color: "var(--color-bg-secondary)" }}>Terms & Conditions</a></li>
               </ul>
-            </details>
+            </div>
 
             {/* Column 4: Kontak */}
-            <details className="footer-details">
-              <summary style={{ fontSize: "1.2rem", marginBottom: "8px", letterSpacing: "1px", borderBottom: "2px solid var(--color-bg-secondary)", paddingBottom: "8px", outline: "none" }}>CONTACT</summary>
-              <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "12px", color: "var(--color-bg-secondary)", fontSize: "0.95rem" }}>
+            <div className="footer-accordion">
+              <input type="checkbox" id="footer-toggle-3" className="footer-toggle" />
+              <label htmlFor="footer-toggle-3" className="footer-summary">CONTACT</label>
+              <ul className="footer-content" style={{ listStyle: "none", padding: 0, flexDirection: "column", gap: "12px", color: "var(--color-bg-secondary)", fontSize: "0.95rem" }}>
                 <li>Email: info@sukabumieundeurindonesia.com</li>
                 <li>WA: +62 812 3456 7890</li>
                 <li><a href="https://instagram.com/sukabumieundeur" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-bg-primary)", fontWeight: "bold", textDecoration: "underline" }}>Instagram</a></li>
               </ul>
-            </details>
+            </div>
 
           </div>
           
