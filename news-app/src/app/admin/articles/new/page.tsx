@@ -136,7 +136,7 @@ export default function NewArticle() {
                     } else {
                       setMessage("Gagal unggah: " + data.error);
                     }
-                  } catch (err) {
+                  } catch {
                     setMessage("Error saat mengunggah gambar");
                   }
                 }}

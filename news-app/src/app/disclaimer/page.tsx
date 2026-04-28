@@ -17,11 +17,11 @@ export default function DisclaimerPage() {
         </p>
 
         <p style={{ marginBottom: "24px" }}>
-          Dari situs web kami, Anda dapat mengunjungi situs web lain dengan mengikuti hyperlink ke situs eksternal tersebut. Meskipun kami berusaha keras untuk hanya menyediakan tautan berkualitas ke situs web yang bermanfaat dan etis, kami tidak memiliki kontrol atas konten dan sifat situs-situs tersebut. Tautan ini ke situs web lain tidak menyiratkan rekomendasi untuk semua konten yang ditemukan di situs-situs tersebut. Pemilik situs dan konten dapat berubah tanpa pemberitahuan dan mungkin terjadi sebelum kami memiliki kesempatan untuk menghapus tautan yang mungkin telah menjadi 'buruk'.
+          Dari situs web kami, Anda dapat mengunjungi situs web lain dengan mengikuti hyperlink ke situs eksternal tersebut. Meskipun kami berusaha keras untuk hanya menyediakan tautan berkualitas ke situs web yang bermanfaat dan etis, kami tidak memiliki kontrol atas konten dan sifat situs-situs tersebut. Tautan ini ke situs web lain tidak menyiratkan rekomendasi untuk semua konten yang ditemukan di situs-situs tersebut. Pemilik situs dan konten dapat berubah tanpa pemberitahuan dan mungkin terjadi sebelum kami memiliki kesempatan untuk menghapus tautan yang mungkin telah menjadi &apos;buruk&apos;.
         </p>
 
         <p style={{ marginBottom: "24px" }}>
-          Harap disadari pula bahwa ketika Anda meninggalkan situs web kami, situs lain mungkin memiliki kebijakan dan ketentuan privasi yang berbeda yang berada di luar kendali kami. Harap pastikan untuk memeriksa Kebijakan Privasi situs tersebut serta "Ketentuan Layanan" mereka sebelum terlibat dalam bisnis apa pun atau mengunggah informasi apa pun.
+          Harap disadari pula bahwa ketika Anda meninggalkan situs web kami, situs lain mungkin memiliki kebijakan dan ketentuan privasi yang berbeda yang berada di luar kendali kami. Harap pastikan untuk memeriksa Kebijakan Privasi situs tersebut serta &quot;Ketentuan Layanan&quot; mereka sebelum terlibat dalam bisnis apa pun atau mengunggah informasi apa pun.
         </p>
 
         <h2 style={{ fontSize: "1.5rem", color: "var(--color-text-primary)", marginTop: "32px", marginBottom: "16px" }}>Hak Cipta (Copyright)</h2>

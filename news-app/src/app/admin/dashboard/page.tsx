@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface Article {
   id: string;
@@ -56,7 +57,7 @@ export default function AdminDashboard() {
             <p style={{ color: "var(--color-text-secondary)", fontSize: "1rem", marginTop: "8px", letterSpacing: "1px" }}>PANEL REDAKSI — SUKABUMI EUNDEUR NEWS</p>
           </div>
           <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-            <a href="/" className="btn" style={{ padding: "10px 20px", fontSize: "0.9rem", backgroundColor: "transparent", color: "var(--color-text-primary)", border: "1px solid var(--color-border)" }}>← NEWS</a>
+            <Link href="/" className="btn" style={{ padding: "10px 20px", fontSize: "0.9rem", backgroundColor: "transparent", color: "var(--color-text-primary)", border: "1px solid var(--color-border)" }}>← NEWS</Link>
             <button onClick={handleLogout} className="btn" style={{ padding: "10px 20px", backgroundColor: "transparent", border: "1px solid #ef4444", color: "#ef4444", fontSize: "0.9rem" }}>LOGOUT</button>
           </div>
         </div>
@@ -79,25 +80,25 @@ export default function AdminDashboard() {
 
         {/* Quick Actions */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px", marginBottom: "56px" }}>
-          <a href="/admin/articles/new" className="product-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px", backgroundColor: "var(--color-text-primary)", color: "var(--color-bg-primary)", textAlign: "center", textDecoration: "none", borderRadius: "8px" }}>
+          <Link href="/admin/articles/new" className="product-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px", backgroundColor: "var(--color-text-primary)", color: "var(--color-bg-primary)", textAlign: "center", textDecoration: "none", borderRadius: "8px" }}>
             <span style={{ fontSize: "3rem", marginBottom: "16px", lineHeight: "1" }}>+</span>
             <span style={{ fontFamily: "var(--font-heading)", fontSize: "1.5rem", letterSpacing: "2px" }}>BUAT ARTIKEL BARU</span>
-          </a>
-          <a href="/admin/articles" className="product-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px", border: "1px solid var(--color-border)", backgroundColor: "var(--color-bg-secondary)", textAlign: "center", textDecoration: "none", color: "var(--color-text-primary)", borderRadius: "8px" }}>
+          </Link>
+          <Link href="/admin/articles" className="product-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px", border: "1px solid var(--color-border)", backgroundColor: "var(--color-bg-secondary)", textAlign: "center", textDecoration: "none", color: "var(--color-text-primary)", borderRadius: "8px" }}>
             <span style={{ fontSize: "3rem", marginBottom: "16px", lineHeight: "1" }}>📋</span>
             <span style={{ fontFamily: "var(--font-heading)", fontSize: "1.5rem", letterSpacing: "2px" }}>KELOLA ARTIKEL</span>
-          </a>
+          </Link>
         </div>
 
         {/* Recent Articles */}
         <div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid var(--color-border)", paddingBottom: "16px", marginBottom: "24px" }}>
             <h2 style={{ fontSize: "1.8rem", fontFamily: "var(--font-heading)", letterSpacing: "2px" }}>ARTIKEL TERBARU</h2>
-            <a href="/admin/articles" className="hover-opacity" style={{ fontSize: "0.9rem", color: "var(--color-text-secondary)", letterSpacing: "1px" }}>LIHAT SEMUA →</a>
+            <Link href="/admin/articles" className="hover-opacity" style={{ fontSize: "0.9rem", color: "var(--color-text-secondary)", letterSpacing: "1px" }}>LIHAT SEMUA →</Link>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             {articles.slice(0, 5).map(a => (
-              <a href={`/admin/articles/edit/${a.slug}`} key={a.id} className="product-card" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 24px", backgroundColor: "var(--color-bg-secondary)", border: "1px solid var(--color-border)", textDecoration: "none", color: "inherit", gap: "16px", flexWrap: "wrap", borderRadius: "8px" }}>
+              <Link href={`/admin/articles/edit/${a.slug}`} key={a.id} className="product-card" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 24px", backgroundColor: "var(--color-bg-secondary)", border: "1px solid var(--color-border)", textDecoration: "none", color: "inherit", gap: "16px", flexWrap: "wrap", borderRadius: "8px" }}>
                 <div style={{ flex: 1 }}>
                   <h4 style={{ fontSize: "1.2rem", marginBottom: "8px", fontFamily: "var(--font-heading)", letterSpacing: "1px" }}>{a.title}</h4>
                   <p style={{ color: "var(--color-text-secondary)", fontSize: "0.9rem", display: "flex", gap: "12px", alignItems: "center" }}>
@@ -107,7 +108,7 @@ export default function AdminDashboard() {
                   </p>
                 </div>
                 <span style={{ padding: "6px 16px", fontSize: "0.85rem", fontWeight: "bold", fontFamily: "var(--font-heading)", letterSpacing: "1px", backgroundColor: a.status === "published" ? "rgba(34,197,94,0.1)" : "rgba(245,158,11,0.1)", color: a.status === "published" ? "#22c55e" : "#f59e0b", border: `1px solid ${a.status === "published" ? "rgba(34,197,94,0.3)" : "rgba(245,158,11,0.3)"}`, borderRadius: "20px" }}>{a.status.toUpperCase()}</span>
-              </a>
+              </Link>
             ))}
             {articles.length === 0 && (
               <div style={{ padding: "40px", textAlign: "center", border: "1px dashed var(--color-border)", borderRadius: "8px", color: "var(--color-text-secondary)" }}>

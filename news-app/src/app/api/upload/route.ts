@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     const fileExtension = file.name.split('.').pop();
     const fileName = `${Date.now()}-${Math.random().toString(36).substring(2, 15)}.${fileExtension}`;
 
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from("media")
       .upload(fileName, buffer, {
         contentType: file.type,

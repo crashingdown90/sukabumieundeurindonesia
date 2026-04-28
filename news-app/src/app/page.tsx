@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/supabase";
+import Link from "next/link";
 
 // Fetch articles from Supabase
 async function getArticles() {
@@ -68,7 +69,7 @@ export default async function NewsHome() {
               <p style={{ fontSize: "1.1rem", lineHeight: "1.6", color: "var(--color-text-secondary)", marginBottom: "24px" }}>
                 {headline.metaDescription || headline.content.substring(0, 200) + "..."}
               </p>
-              <a href={`/artikel/${headline.slug}`} className="btn btn-primary" style={{ borderRadius: "0" }}>BACA SELENGKAPNYA</a>
+              <Link href={`/artikel/${headline.slug}`} className="btn btn-primary" style={{ borderRadius: "0" }}>BACA SELENGKAPNYA</Link>
             </div>
 
             <div style={{ 
@@ -89,8 +90,8 @@ export default async function NewsHome() {
           
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "32px" }}>
             
-            {recentArticles.length > 0 ? recentArticles.map((article: any) => (
-              <a key={article.id} href={`/artikel/${article.slug}`} style={{ display: "block", textDecoration: "none", color: "inherit" }} className="product-card">
+            {recentArticles.length > 0 ? recentArticles.map((article) => (
+              <Link key={article.id} href={`/artikel/${article.slug}`} style={{ display: "block", textDecoration: "none", color: "inherit" }} className="product-card">
                 <div style={{ padding: "0" }}>
                   <div style={{ 
                     height: "200px", 
@@ -109,7 +110,7 @@ export default async function NewsHome() {
                     </p>
                   </div>
                 </div>
-              </a>
+              </Link>
             )) : (
               <p style={{ color: "var(--color-text-secondary)" }}>Belum ada berita terkini.</p>
             )}

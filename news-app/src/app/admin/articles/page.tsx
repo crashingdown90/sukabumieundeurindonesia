@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 
 interface Article {
@@ -18,14 +18,7 @@ export default function AdminArticles() {
   const [filter, setFilter] = useState("all");
   const router = useRouter();
 
-  useEffect(() => {
-    const token = localStorage.getItem("admin_token");
-    const expiry = localStorage.getItem("admin_expiry");
-    if (!token || !expiry || Date.now() > Number(expiry)) { router.push("/admin"); return; }
-    loadArticles();
-  }, [router]);
-
-  const loadArticles = () => {
+  const loadArticles = useCallback(() => {
     fetch("/api/articles").then(r => r.json()).then(data => {
       if (Array.isArray(data)) {
         setArticles(data);
@@ -34,7 +27,14 @@ export default function AdminArticles() {
       }
       setLoading(false);
     });
-  };
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem("admin_token");
+    const expiry = localStorage.getItem("admin_expiry");
+    if (!token || !expiry || Date.now() > Number(expiry)) { router.push("/admin"); return; }
+    loadArticles();
+  }, [router, loadArticles]);
 
   const handleDelete = async (slug: string) => {
     if (!confirm("Yakin ingin menghapus artikel ini?")) return;

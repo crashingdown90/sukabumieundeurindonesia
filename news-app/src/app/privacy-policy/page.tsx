@@ -21,7 +21,7 @@ export default function PrivacyPolicyPage() {
 
         <h2 style={{ fontSize: "1.5rem", color: "var(--color-text-primary)", marginTop: "32px", marginBottom: "16px" }}>Cookies dan Web Beacons</h2>
         <p style={{ marginBottom: "24px" }}>
-          Seperti situs web lainnya, Sukabumi Eundeur News menggunakan 'cookies'. Cookie digunakan untuk menyimpan informasi seperti preferensi pengunjung dan halaman di situs web yang diakses pengunjung. Informasi ini digunakan untuk mengoptimalkan pengalaman pengguna dengan menyesuaikan konten halaman web kami berdasarkan jenis browser pengunjung dan/atau informasi lainnya.
+          Seperti situs web lainnya, Sukabumi Eundeur News menggunakan &apos;cookies&apos;. Cookie digunakan untuk menyimpan informasi seperti preferensi pengunjung dan halaman di situs web yang diakses pengunjung. Informasi ini digunakan untuk mengoptimalkan pengalaman pengguna dengan menyesuaikan konten halaman web kami berdasarkan jenis browser pengunjung dan/atau informasi lainnya.
         </p>
 
         <h2 style={{ fontSize: "1.5rem", color: "var(--color-text-primary)", marginTop: "32px", marginBottom: "16px" }}>Google DoubleClick DART Cookie</h2>

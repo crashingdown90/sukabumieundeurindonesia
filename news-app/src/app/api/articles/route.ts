@@ -13,6 +13,7 @@ export async function GET() {
   }
 
   // Map database format to frontend format
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const formattedArticles = articles.map((a: any) => ({
     id: a.id,
     slug: a.slug,

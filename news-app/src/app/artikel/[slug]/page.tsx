@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 
 // This runs on the server
@@ -52,8 +53,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     notFound();
   }
 
-  // Format paragraphs from text area (split by newline)
-  const formattedContent = article.content.split('\n').filter((p: string) => p.trim() !== '');
+
 
   return (
     <>
@@ -128,17 +128,17 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           <h3 style={{ fontSize: "1.5rem", borderBottom: "1px solid var(--color-border)", paddingBottom: "12px", marginBottom: "24px", fontFamily: "var(--font-heading)", letterSpacing: "1px" }}>BACA JUGA</h3>
           
           <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-            <a href="/" style={{ textDecoration: "none", color: "inherit" }} className="hover-opacity">
+            <Link href="/" style={{ textDecoration: "none", color: "inherit" }} className="hover-opacity">
               <div style={{ display: "flex", gap: "16px" }}>
                 <div style={{ width: "100px", height: "100px", backgroundColor: "var(--color-bg-secondary)", backgroundImage: "url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=200&auto=format&fit=crop')", backgroundSize: "cover", filter: "grayscale(100%)" }}></div>
                 <div style={{ flex: 1 }}>
                   <span style={{ fontSize: "0.75rem", color: "var(--color-text-secondary)", fontFamily: "var(--font-heading)", letterSpacing: "1px" }}>REVIEW ALBUM</span>
-                  <h4 style={{ fontSize: "1rem", lineHeight: "1.3", marginTop: "4px" }}>Membedah Album Terbaru 'Total Aggression'</h4>
+                  <h4 style={{ fontSize: "1rem", lineHeight: "1.3", marginTop: "4px" }}>Membedah Album Terbaru &apos;Total Aggression&apos;</h4>
                 </div>
               </div>
-            </a>
+            </Link>
             
-            <a href="/" style={{ textDecoration: "none", color: "inherit" }} className="hover-opacity">
+            <Link href="/" style={{ textDecoration: "none", color: "inherit" }} className="hover-opacity">
               <div style={{ display: "flex", gap: "16px" }}>
                 <div style={{ width: "100px", height: "100px", backgroundColor: "var(--color-bg-secondary)", backgroundImage: "url('https://images.unsplash.com/photo-1493225457124-a1a2a5f014e3?q=80&w=200&auto=format&fit=crop')", backgroundSize: "cover", filter: "grayscale(100%)" }}></div>
                 <div style={{ flex: 1 }}>
@@ -146,7 +146,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                   <h4 style={{ fontSize: "1rem", lineHeight: "1.3", marginTop: "4px" }}>Eksklusif: Di Balik Dapur Rekaman Burgerkill</h4>
                 </div>
               </div>
-            </a>
+            </Link>
           </div>
 
         </div>

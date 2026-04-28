@@ -165,7 +165,7 @@ export default function EditArticle() {
                     } else {
                       setMessage("Gagal unggah: " + data.error);
                     }
-                  } catch (err) {
+                  } catch {
                     setMessage("Error saat mengunggah gambar");
                   }
                 }}

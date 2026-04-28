@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -26,9 +27,9 @@ export default function Navbar() {
       transition: "all 0.3s ease-in-out" 
     }}>
       <div className="container nav-container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <a href="/" style={{ display: "flex", alignItems: "center", zIndex: 1100 }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", zIndex: 1100 }}>
           <Image src="/logo-sukabumi.png" alt="Sukabumi Eundeur Logo" width={250} height={80} style={{ objectFit: "contain", height: "40px", width: "auto", filter: "invert(1)" }} priority />
-        </a>
+        </Link>
 
         {/* Hamburger Icon for Mobile */}
         <div 
@@ -46,17 +47,17 @@ export default function Navbar() {
           <div className="nav-links" style={{ fontSize: "0.95rem", letterSpacing: "1px", display: "flex", gap: "24px", alignItems: "center", fontWeight: "600" }}>
             
             <div className="nav-item">
-              <a href="/" className="hover-opacity">BERITA ▾</a>
+              <Link href="/" className="hover-opacity">BERITA ▾</Link>
               <div className="dropdown-menu">
-                <a href="/" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>BERITA UTAMA</a>
-                <a href="/artikel/metalhead-kesehatan" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>SAINS & MUSIK</a>
-                <a href="/artikel/kebangkitan-skena" className="dropdown-link" style={{ padding: "8px 0" }} onClick={() => setIsMobileMenuOpen(false)}>SKENA LOKAL</a>
+                <Link href="/" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>BERITA UTAMA</Link>
+                <Link href="/artikel/metalhead-kesehatan" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>SAINS & MUSIK</Link>
+                <Link href="/artikel/kebangkitan-skena" className="dropdown-link" style={{ padding: "8px 0" }} onClick={() => setIsMobileMenuOpen(false)}>SKENA LOKAL</Link>
               </div>
             </div>
 
-            <a href="/gigs" className="hover-opacity" onClick={() => setIsMobileMenuOpen(false)}>GIGS</a>
-            <a href="/review" className="hover-opacity" onClick={() => setIsMobileMenuOpen(false)}>REVIEW</a>
-            <a href="/interview" className="hover-opacity" onClick={() => setIsMobileMenuOpen(false)}>INTERVIEW</a>
+            <Link href="/gigs" className="hover-opacity" onClick={() => setIsMobileMenuOpen(false)}>GIGS</Link>
+            <Link href="/review" className="hover-opacity" onClick={() => setIsMobileMenuOpen(false)}>REVIEW</Link>
+            <Link href="/interview" className="hover-opacity" onClick={() => setIsMobileMenuOpen(false)}>INTERVIEW</Link>
             
             <a href="https://sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" className="hover-opacity main-site-btn" style={{ padding: "8px 20px", fontSize: "0.9rem", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.1)", backdropFilter: "blur(5px)" }} onClick={() => setIsMobileMenuOpen(false)}>MAIN SITE</a>
           </div>

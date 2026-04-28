@@ -7,7 +7,7 @@ import "react-quill-new/dist/quill.snow.css";
 const ReactQuill = dynamic(
   async () => {
     const { default: RQ } = await import("react-quill-new");
-    // eslint-disable-next-line react/display-name
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return function ReactQuillWrapper({ forwardedRef, ...props }: any) {
       return <RQ ref={forwardedRef} {...props} />;
     };
@@ -28,6 +28,7 @@ const formats = [
 ];
 
 export default function RichTextEditor({ value, onChange }: RichTextEditorProps) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const quillRef = useRef<any>(null);
 
   const imageHandler = () => {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 require('dotenv').config({ path: '.env.local' });
 const { createClient } = require('@supabase/supabase-js');
 const fs = require('fs');
@@ -31,7 +32,7 @@ async function migrate() {
       status: article.status || "draft",
     };
 
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('articles')
       .upsert(newArticle, { onConflict: 'slug' })
       .select();

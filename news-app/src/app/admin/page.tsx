@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function AdminLogin() {
   const [pin, setPin] = useState("");
@@ -66,7 +67,7 @@ export default function AdminLogin() {
           {loading ? "VERIFYING..." : "ENTER DASHBOARD"}
         </button>
 
-        <a href="/" style={{ display: "block", marginTop: "24px", color: "var(--color-text-secondary)", fontSize: "0.9rem" }}>← Kembali ke News</a>
+        <Link href="/" style={{ display: "block", marginTop: "24px", color: "var(--color-text-secondary)", fontSize: "0.9rem" }}>← Kembali ke News</Link>
       </div>
     </div>
   );
