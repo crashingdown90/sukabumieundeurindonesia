@@ -97,26 +97,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
-@media (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    padding-top: 16px !important;
-    padding-bottom: 16px !important;
-    gap: 16px;
-  }
-  
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    font-size: 0.9rem;
-  }
-
-  .nav-links .btn {
-    padding: 6px 12px !important;
-    font-size: 0.9rem !important;
-}
-
 /* Animations and Hover Effects */
 .card-hover {
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
