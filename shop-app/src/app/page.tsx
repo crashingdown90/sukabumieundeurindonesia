@@ -110,10 +110,37 @@ export default function Shop() {
       </section>
 
       <div id="catalog" className="container" style={{ padding: "80px 24px" }}>
+        
+        {/* Featured Artists / Stores Section (MerchNow Concept) */}
+        <section style={{ marginBottom: "80px" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", borderBottom: "2px solid var(--color-border)", paddingBottom: "16px", marginBottom: "32px" }}>
+            <h2 style={{ fontSize: "2rem" }}>FEATURED STORES</h2>
+            <a href="/" style={{ fontSize: "0.9rem", fontWeight: "bold", textDecoration: "underline" }}>View All Artists</a>
+          </div>
+          
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "24px" }}>
+            {/* Mock Artists / Events */}
+            {["SUKABUMI EUNDEUR", "REROUTE TO ROOTS", "TOTAL AGGRESSION", "SOUND REVIVAL"].map((artist) => (
+              <a href={`#`} key={artist} className="product-card" style={{ 
+                display: "flex", 
+                alignItems: "center", 
+                justifyContent: "center", 
+                height: "120px", 
+                backgroundColor: "var(--color-bg-secondary)", 
+                border: "2px solid var(--color-text-primary)",
+                textDecoration: "none",
+                color: "var(--color-text-primary)"
+              }}>
+                <h3 style={{ fontSize: "1.2rem", textAlign: "center", padding: "16px" }}>{artist}</h3>
+              </a>
+            ))}
+          </div>
+        </section>
+
         {/* Store Header & Category Filter */}
         <section style={{ textAlign: "center", marginBottom: "60px" }}>
           <h2 style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", marginBottom: "24px", lineHeight: "1.1" }}>
-            OFFICIAL <span style={{ color: "var(--color-text-secondary)" }}>CATALOG</span>
+            NEW <span style={{ color: "var(--color-text-secondary)" }}>ARRIVALS</span>
           </h2>
           
           {/* Tabs Filter */}

@@ -19,14 +19,12 @@ export default function RootLayout({
           <a href="https://sukabumieundeurindonesia.com" style={{ display: "flex", alignItems: "center" }}>
             <Image src="/logo-sukabumi.png" alt="Sukabumi Eundeur Logo" width={250} height={80} style={{ objectFit: "contain", height: "60px", width: "auto" }} priority />
           </a>
-          <div className="nav-links" style={{ fontSize: "0.95rem" }}>
-            <a href="/">NEW ARRIVAL</a>
-            <a href="/">T-SHIRTS</a>
-            <a href="/">OUTERWEAR</a>
-            <a href="/">ACCESSORIES</a>
+          <div className="nav-links" style={{ fontSize: "0.95rem", letterSpacing: "1px" }}>
+            <a href="/">HOME</a>
+            <a href="/#catalog">STORES / ARTISTS</a>
+            <a href="/#catalog">CLOTHING</a>
+            <a href="/#catalog">ACCESSORIES</a>
             <a href="/shipping">SHIPPING</a>
-            <a href="/terms">T&C</a>
-            <a href="/faq">FAQ</a>
             <a href="https://sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" style={{ borderLeft: "2px solid var(--color-text-primary)", paddingLeft: "16px", marginLeft: "8px" }}>MAIN SITE</a>
           </div>
         </nav>
