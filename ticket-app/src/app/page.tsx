@@ -51,40 +51,21 @@ export default function TicketHome() {
         {/* Event List */}
         <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
           
-          {/* Ticket Card 1 */}
-          <div className="ticket-card">
-            <div className="ticket-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1000&auto=format&fit=crop')" }}></div>
+          {/* Coming Soon Ticket Card */}
+          <div className="ticket-card" style={{ opacity: 0.8 }}>
+            <div className="ticket-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=1000&auto=format&fit=crop')", filter: "grayscale(100%) contrast(150%) brightness(0.5)" }}></div>
             <div className="ticket-content">
               <div style={{ display: "flex", gap: "16px", marginBottom: "16px", fontSize: "0.9rem", fontWeight: "bold", color: "var(--color-bg-primary)", flexWrap: "wrap" }}>
-                <span style={{ backgroundColor: "var(--color-text-primary)", padding: "4px 12px" }}>12 AGUSTUS 2024</span>
-                <span style={{ backgroundColor: "var(--color-text-primary)", padding: "4px 12px" }}>GOR MERDEKA</span>
+                <span style={{ backgroundColor: "var(--color-text-primary)", padding: "4px 12px" }}>TBA 2026</span>
+                <span style={{ backgroundColor: "var(--color-text-primary)", padding: "4px 12px" }}>SUKABUMI</span>
               </div>
-              <h3 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", marginBottom: "8px", lineHeight: "1.1" }}>SUKABUMI EUNDEUR FESTIVAL 2024</h3>
+              <h3 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", marginBottom: "8px", lineHeight: "1.1" }}>SUKABUMI EUNDEUR FESTIVAL 2026</h3>
               <p style={{ fontSize: "1.1rem", color: "var(--color-text-secondary)", marginBottom: "24px" }}>
-                Featuring: Burgerkill, DeadSquad, Rosemary, Jasad, and more local heroes.
+                Persiapkan diri kalian untuk distorsi terbesar dalam sejarah pergerakan bawah tanah Sukabumi.
               </p>
               <div style={{ display: "flex", alignItems: "center", gap: "24px", flexWrap: "wrap" }}>
-                <span style={{ fontSize: "1.8rem", fontWeight: "bold", whiteSpace: "nowrap" }}>Rp 75.000</span>
-                <a href="/ticket/1" className="btn btn-primary" style={{ padding: "12px 32px", width: "fit-content", border: "4px solid var(--color-text-primary)" }}>BELI TIKET</a>
-              </div>
-            </div>
-          </div>
-
-          {/* Ticket Card 2 */}
-          <div className="ticket-card" style={{ backgroundColor: "var(--color-bg-secondary)" }}>
-            <div className="ticket-img" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1000&auto=format&fit=crop')" }}></div>
-            <div className="ticket-content">
-              <div style={{ display: "flex", gap: "16px", marginBottom: "16px", fontSize: "0.9rem", fontWeight: "bold", color: "var(--color-text-primary)", border: "2px solid var(--color-text-primary)", width: "fit-content", flexWrap: "wrap" }}>
-                <span style={{ padding: "4px 12px", borderRight: "2px solid var(--color-text-primary)" }}>25 NOVEMBER 2024</span>
-                <span style={{ padding: "4px 12px" }}>SECRET VENUE</span>
-              </div>
-              <h3 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", marginBottom: "8px", lineHeight: "1.1" }}>REROUTE TO ROOTS Vol. 3</h3>
-              <p style={{ fontSize: "1.1rem", color: "var(--color-text-secondary)", marginBottom: "24px" }}>
-                Intimate underground gig with 100% pure hardcore energy.
-              </p>
-              <div style={{ display: "flex", alignItems: "center", gap: "24px", flexWrap: "wrap" }}>
-                <span style={{ fontSize: "1.8rem", fontWeight: "bold", whiteSpace: "nowrap" }}>Rp 45.000</span>
-                <button className="btn" style={{ padding: "12px 32px", opacity: 0.5, cursor: "not-allowed", border: "4px solid var(--color-text-primary)" }} disabled>SOLD OUT</button>
+                <span style={{ fontSize: "1.8rem", fontWeight: "bold", whiteSpace: "nowrap" }}>Rp --</span>
+                <button className="btn" style={{ padding: "12px 32px", width: "fit-content", border: "4px solid var(--color-text-primary)", opacity: 0.5, cursor: "not-allowed" }} disabled>COMING SOON</button>
               </div>
             </div>
           </div>
