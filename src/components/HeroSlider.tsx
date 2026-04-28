@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const slides = [
   {
@@ -35,45 +36,49 @@ export default function HeroSlider() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, 5000); // Ganti slide setiap 5 detik
+    }, 6000); // Ganti slide setiap 6 detik
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <div style={{ position: "relative", width: "100%", height: "70vh", minHeight: "500px", marginBottom: "80px", overflow: "hidden", backgroundColor: "var(--color-bg-primary)", border: "2px solid var(--color-text-primary)" }}>
-      {slides.map((slide, index) => (
-        <div
-          key={slide.id}
+    <div style={{ position: "relative", width: "100vw", marginLeft: "calc(-50vw + 50%)", height: "80vh", minHeight: "600px", overflow: "hidden", backgroundColor: "var(--color-bg-primary)" }}>
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={currentSlide}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
           style={{
             position: "absolute",
             top: 0,
             left: 0,
             width: "100%",
             height: "100%",
-            opacity: index === currentSlide ? 1 : 0,
-            transition: "opacity 1s ease-in-out",
-            zIndex: index === currentSlide ? 1 : 0,
+            zIndex: 1,
           }}
         >
-          {/* Background Image with Black & White Filter and Dark Overlay */}
+          {/* Background Image with Cinematic Grading */}
           <div style={{
             position: "absolute",
             top: 0,
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundImage: `url('${slide.image}')`,
+            backgroundImage: `url('${slides[currentSlide].image}')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            filter: "grayscale(100%) contrast(120%)", // Memaksa gambar apapun menjadi Hitam Putih
+            filter: "grayscale(80%) contrast(110%) brightness(0.8)",
           }} />
+          
+          {/* Premium Gradient Overlay */}
           <div style={{
             position: "absolute",
             top: 0,
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.6)", // Overlay hitam agar teks terbaca
+            background: "linear-gradient(to bottom, rgba(5,5,5,0.2) 0%, rgba(5,5,5,0.7) 50%, rgba(5,5,5,1) 100%)",
           }} />
 
           {/* Text Content */}
@@ -87,27 +92,42 @@ export default function HeroSlider() {
             height: "100%",
             textAlign: "center",
             padding: "24px",
-            color: "white", // Selalu putih karena overlay gelap
+            color: "white",
           }}>
-            <h1 style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)", marginBottom: "16px", lineHeight: "1.1", textShadow: "4px 4px 0 #000" }}>
-              {slide.title}
-            </h1>
-            <p style={{ fontSize: "clamp(1rem, 4vw, 1.5rem)", fontWeight: "bold", letterSpacing: "2px", textShadow: "2px 2px 0 #000" }}>
-              {slide.subtitle}
-            </p>
+            <motion.h1 
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+              style={{ fontSize: "clamp(3rem, 8vw, 6rem)", marginBottom: "16px", lineHeight: "1.1", textShadow: "0 10px 30px rgba(0,0,0,0.5)", fontWeight: "bold" }}
+            >
+              {slides[currentSlide].title}
+            </motion.h1>
+            <motion.p 
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+              style={{ fontSize: "clamp(1rem, 4vw, 1.5rem)", letterSpacing: "4px", color: "rgba(255,255,255,0.8)", textTransform: "uppercase" }}
+            >
+              {slides[currentSlide].subtitle}
+            </motion.p>
             
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px", marginTop: "40px" }}>
-              <a href="/events" className="btn" style={{ backgroundColor: "white", color: "black", borderColor: "white" }}>Lihat Jadwal Gig</a>
-              <a href="https://shop.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" className="btn" style={{ backgroundColor: "transparent", color: "white", borderColor: "white" }}>Merchandise Resmi</a>
-            </div>
+            <motion.div 
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.8, ease: "easeOut" }}
+              style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px", marginTop: "40px" }}
+            >
+              <a href="/events" className="btn" style={{ backgroundColor: "white", color: "black", borderColor: "white", borderRadius: "30px", padding: "14px 32px", fontSize: "0.95rem", letterSpacing: "2px" }}>LIHAT JADWAL GIG</a>
+              <a href="https://shop.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" className="btn" style={{ backgroundColor: "rgba(255,255,255,0.1)", backdropFilter: "blur(10px)", color: "white", borderColor: "rgba(255,255,255,0.3)", borderRadius: "30px", padding: "14px 32px", fontSize: "0.95rem", letterSpacing: "2px" }}>MERCHANDISE RESMI</a>
+            </motion.div>
           </div>
-        </div>
-      ))}
+        </motion.div>
+      </AnimatePresence>
 
       {/* Slide Indicators */}
       <div style={{
         position: "absolute",
-        bottom: "32px",
+        bottom: "40px",
         left: "50%",
         transform: "translateX(-50%)",
         display: "flex",
@@ -119,12 +139,13 @@ export default function HeroSlider() {
             key={index}
             onClick={() => setCurrentSlide(index)}
             style={{
-              width: "40px",
-              height: "6px",
+              width: index === currentSlide ? "32px" : "8px",
+              height: "8px",
+              borderRadius: "4px",
               backgroundColor: index === currentSlide ? "white" : "rgba(255, 255, 255, 0.3)",
               border: "none",
               cursor: "pointer",
-              transition: "background-color 0.3s",
+              transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
             }}
             aria-label={`Go to slide ${index + 1}`}
           />

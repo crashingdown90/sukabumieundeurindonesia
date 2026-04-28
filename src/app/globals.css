@@ -1,19 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap');
 
 :root {
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #f4f4f5;
-  --color-text-primary: #09090b;
-  --color-text-secondary: #52525b;
-  --color-accent: #09090b;
-  --color-accent-hover: #27272a;
-  --color-metal-grey: #3f3f46;
-  --color-border: #e4e4e7;
+  --color-bg-primary: #050505;
+  --color-bg-secondary: #111111;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a1a1aa;
+  --color-accent: #ffffff;
+  --color-accent-hover: #e4e4e7;
+  --color-metal-grey: #27272a;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-glass: rgba(20, 20, 20, 0.6);
 
   --font-heading: 'Oswald', sans-serif;
   --font-body: 'Inter', sans-serif;
 
-  --transition-speed: 0.2s ease-in-out;
+  --transition-speed: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html, body {
@@ -247,3 +248,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.hover-opacity {
+  transition: opacity var(--transition-speed);
+}
+
+.hover-opacity:hover {
+  opacity: 0.7;
+}
