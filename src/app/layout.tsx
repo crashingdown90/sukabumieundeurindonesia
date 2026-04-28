@@ -80,6 +80,7 @@ export default function RootLayout({
             <p>&copy; {new Date().getFullYear()} Sukabumi Eundeur Indonesia. All rights reserved.</p>
           </div>
         </footer>
+      </body>
     </html>
   );
 }
