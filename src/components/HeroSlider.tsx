@@ -40,7 +40,7 @@ export default function HeroSlider() {
   }, []);
 
   return (
-    <div style={{ position: "relative", width: "100%", height: "70vh", minHeight: "500px", overflow: "hidden", backgroundColor: "var(--color-bg-primary)", border: "2px solid var(--color-text-primary)" }}>
+    <div style={{ position: "relative", width: "100%", height: "70vh", minHeight: "500px", marginBottom: "80px", overflow: "hidden", backgroundColor: "var(--color-bg-primary)", border: "2px solid var(--color-text-primary)" }}>
       {slides.map((slide, index) => (
         <div
           key={slide.id}
