@@ -37,7 +37,7 @@ export default function TicketHome() {
             OFFICIAL TICKETING
           </h1>
           <p style={{ fontSize: "clamp(1rem, 2vw, 1.5rem)", fontWeight: "bold", letterSpacing: "2px", textShadow: "2px 2px 0 #000" }}>
-            AMANKAN TIKET GIGS/EVENT SUKABUMI EUNDEUR DI SINI
+            PLATFORM RESMI PEMBELIAN TIKET EVENT SUKABUMI EUNDEUR
           </p>
         </div>
       </section>
