@@ -201,10 +201,10 @@ export default function BiographyPage() {
           </p>
           <div style={{ display: "flex", gap: "24px", justifyContent: "center", flexWrap: "wrap" }}>
             <a href="https://ticket.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" className="btn" style={{ padding: "16px 32px", fontSize: "1.2rem", backgroundColor: "var(--color-bg-primary)", color: "var(--color-text-primary)", borderColor: "var(--color-bg-primary)" }}>
-              🎟️ BELI TIKET EVENT
+              BELI TIKET EVENT
             </a>
             <a href="https://shop.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" className="btn" style={{ padding: "16px 32px", fontSize: "1.2rem", color: "var(--color-bg-primary)", borderColor: "var(--color-bg-primary)", backgroundColor: "transparent" }}>
-              👕 DUKUNG VIA MERCH
+              DUKUNG VIA MERCH
             </a>
           </div>
         </div>
