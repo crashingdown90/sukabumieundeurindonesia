@@ -5,21 +5,27 @@ import { useState, useEffect } from "react";
 const slides = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=2000&auto=format&fit=crop",
+    image: "/POL_5993.jpg",
     title: "SUKABUMI EUNDEUR",
     subtitle: "EPISENTRUM DISTORSI INDEPENDEN",
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1540039155732-68473668f420?q=80&w=2000&auto=format&fit=crop",
+    image: "/DSC01521.jpg",
     title: "REROUTE TO ROOTS",
     subtitle: "KEMBALI KE AKAR PERGERAKAN",
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?q=80&w=2000&auto=format&fit=crop",
+    image: "/DSC01871.jpg",
     title: "TOTAL AGGRESSION",
     subtitle: "SOLIDARITAS DALAM SATU FREKUENSI",
+  },
+  {
+    id: 4,
+    image: "/DSC02021.jpg",
+    title: "SOUND REVIVAL",
+    subtitle: "MENOLAK TUNDUK, MENOLAK MATI",
   }
 ];
 
