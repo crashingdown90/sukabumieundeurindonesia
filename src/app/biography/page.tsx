@@ -87,7 +87,7 @@ export default function BiographyPage() {
               Sukabumi Eundeur bukanlah sekadar *event organizer*. Ini adalah sebuah kolektif, sebuah *movement* yang lahir dari idealisme sekumpulan pemuda lokal yang menolak menyerah pada keterbatasan di awal tahun 2000-an.
             </p>
             <p style={{ fontSize: "1.1rem", lineHeight: "1.8", color: "var(--color-text-secondary)" }}>
-              Berawal dari patungan uang jajan hingga kini menjadi entitas korporasi, semangat DIY (Do It Yourself) dan solidaritas skena tetap menjadi nyala api utama yang dijaga oleh para pendiri dan tim inti hingga hari ini.
+              Berawal dari patungan uang jajan hingga kini menjadi entitas korporasi, semangat pergerakan mandiri (independen) dan solidaritas skena tetap menjadi nyala api utama yang dijaga oleh para pendiri dan tim inti hingga hari ini.
             </p>
           </div>
           <div style={{ position: "relative", height: "400px", border: "4px solid var(--color-text-primary)" }}>
