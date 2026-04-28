@@ -178,5 +178,15 @@ h1, h2, h3, h4, h5, h6 {
     width: calc(100% - 48px) !important;
     text-align: center;
   }
+
+  .timeline-spacer {
+    display: none !important;
+  }
+
+  .timeline-item {
+    flex-direction: column !important;
+    gap: 16px !important;
+    margin-bottom: 40px !important;
+  }
 }
 
