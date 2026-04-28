@@ -190,3 +190,47 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Footer Minimalist (Accordion on Mobile) */
+.footer-details summary {
+  list-style: none;
+  cursor: pointer;
+}
+.footer-details summary::-webkit-details-marker {
+  display: none;
+}
+.footer-details summary::after {
+  content: '+';
+  float: right;
+  font-family: monospace;
+  font-size: 1.2rem;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .footer-details summary::after {
+    display: inline-block;
+  }
+  .footer-details[open] summary::after {
+    content: '-';
+  }
+  .footer-details ul {
+    margin-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+@media (min-width: 769px) {
+  .footer-details {
+    pointer-events: none;
+  }
+  .footer-details summary {
+    cursor: default;
+  }
+  /* Memaksa list muncul di desktop walaupun <details> tidak memiliki atribut 'open' */
+  .footer-details:not([open]) ul {
+    display: flex !important;
+  }
+  .footer-details ul {
+    pointer-events: auto;
+  }
+}
+
