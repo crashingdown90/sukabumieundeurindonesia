@@ -81,13 +81,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           </div>
 
           {/* Article Body */}
-          <article style={{ fontSize: "1.15rem", lineHeight: "1.8", color: "var(--color-text-primary)" }}>
-            {formattedContent.map((paragraph: string, idx: number) => (
-              <p key={idx} style={{ marginBottom: "24px", letterSpacing: "0.2px" }}>
-                {paragraph}
-              </p>
-            ))}
-          </article>
+          <article 
+            className="article-content"
+            style={{ fontSize: "1.15rem", lineHeight: "1.8", color: "var(--color-text-primary)" }}
+            dangerouslySetInnerHTML={{ __html: article.content }}
+          />
 
           {/* Tags & Share */}
           <div style={{ marginTop: "60px", paddingTop: "32px", borderTop: "1px solid var(--color-border)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "24px" }}>

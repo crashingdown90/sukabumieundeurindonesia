@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+import RichTextEditor from "@/components/RichTextEditor";
+
 const CATEGORIES = [
   { value: "berita-utama", label: "Berita Utama" },
   { value: "sains-musik", label: "Sains & Musik" },
@@ -29,6 +31,10 @@ export default function NewArticle() {
     if (name === "title") {
       setForm(prev => ({ ...prev, slug: value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") }));
     }
+  };
+
+  const handleContentChange = (value: string) => {
+    setForm(prev => ({ ...prev, content: value }));
   };
 
   const handleSave = async (status: string) => {
@@ -109,7 +115,7 @@ export default function NewArticle() {
 
           <div>
             <label style={labelStyle}>KONTEN ARTIKEL</label>
-            <textarea name="content" value={form.content} onChange={handleChange} rows={16} placeholder="Tulis konten artikel di sini. Gunakan baris kosong untuk memisahkan paragraf..." style={{ ...inputStyle, resize: "vertical", lineHeight: "1.6" }} />
+            <RichTextEditor value={form.content} onChange={handleContentChange} />
           </div>
 
           {message && <p style={{ color: "#ef4444", fontWeight: "bold" }}>{message}</p>}

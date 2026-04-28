@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 
+import RichTextEditor from "@/components/RichTextEditor";
+
 const CATEGORIES = [
   { value: "berita-utama", label: "Berita Utama" },
   { value: "sains-musik", label: "Sains & Musik" },
@@ -34,6 +36,10 @@ export default function EditArticle() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleContentChange = (value: string) => {
+    setForm(prev => ({ ...prev, content: value }));
   };
 
   const handleSave = async () => {
@@ -134,7 +140,7 @@ export default function EditArticle() {
 
           <div>
             <label style={labelStyle}>KONTEN ARTIKEL</label>
-            <textarea name="content" value={form.content} onChange={handleChange} rows={16} style={{ ...inputStyle, resize: "vertical", lineHeight: "1.6" }} />
+            <RichTextEditor value={form.content} onChange={handleContentChange} />
           </div>
 
           {message && <p style={{ color: message.includes("berhasil") ? "#22c55e" : "#ef4444", fontWeight: "bold" }}>{message}</p>}
