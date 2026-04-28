@@ -38,13 +38,25 @@ export default function AdminArticles() {
 
   const handleDelete = async (slug: string) => {
     if (!confirm("Yakin ingin menghapus artikel ini?")) return;
-    await fetch(`/api/articles/${slug}`, { method: "DELETE" });
+    const token = localStorage.getItem("admin_token");
+    await fetch(`/api/articles/${slug}`, { 
+      method: "DELETE",
+      headers: { "Authorization": `Bearer ${token}` }
+    });
     loadArticles();
   };
 
   const handleToggleStatus = async (slug: string, currentStatus: string) => {
     const newStatus = currentStatus === "published" ? "draft" : "published";
-    await fetch(`/api/articles/${slug}`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status: newStatus }) });
+    const token = localStorage.getItem("admin_token");
+    await fetch(`/api/articles/${slug}`, { 
+      method: "PUT", 
+      headers: { 
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }, 
+      body: JSON.stringify({ status: newStatus }) 
+    });
     loadArticles();
   };
 

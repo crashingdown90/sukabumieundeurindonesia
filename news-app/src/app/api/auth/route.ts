@@ -5,7 +5,8 @@ export async function POST(request: Request) {
   const adminPin = process.env.ADMIN_PIN || "179003";
 
   if (pin === adminPin) {
-    return NextResponse.json({ success: true, token: `admin_${Date.now()}_${Math.random().toString(36).slice(2)}` });
+    const apiToken = process.env.ADMIN_API_TOKEN || "default_fallback_token";
+    return NextResponse.json({ success: true, token: apiToken });
   }
 
   return NextResponse.json({ success: false, message: "PIN salah" }, { status: 401 });

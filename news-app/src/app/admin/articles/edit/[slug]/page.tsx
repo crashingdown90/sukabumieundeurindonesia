@@ -47,9 +47,13 @@ export default function EditArticle() {
     setSaving(true);
     setMessage("");
     try {
+      const token = localStorage.getItem("admin_token");
       const res = await fetch(`/api/articles/${slug}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
         body: JSON.stringify(form),
       });
       if (res.ok) {
@@ -64,7 +68,11 @@ export default function EditArticle() {
 
   const handleDelete = async () => {
     if (!confirm("Yakin ingin menghapus artikel ini secara permanen?")) return;
-    await fetch(`/api/articles/${slug}`, { method: "DELETE" });
+    const token = localStorage.getItem("admin_token");
+    await fetch(`/api/articles/${slug}`, { 
+      method: "DELETE",
+      headers: { "Authorization": `Bearer ${token}` }
+    });
     router.push("/admin/articles");
   };
 
@@ -144,7 +152,12 @@ export default function EditArticle() {
                   formData.append("file", file);
                   setMessage("Mengunggah gambar...");
                   try {
-                    const res = await fetch("/api/upload", { method: "POST", body: formData });
+                    const token = localStorage.getItem("admin_token");
+                    const res = await fetch("/api/upload", { 
+                      method: "POST", 
+                      body: formData,
+                      headers: { "Authorization": `Bearer ${token}` }
+                    });
                     const data = await res.json();
                     if (data.url) {
                       setForm(prev => ({ ...prev, image: data.url }));

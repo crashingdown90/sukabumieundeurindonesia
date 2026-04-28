@@ -44,10 +44,12 @@ export default function RichTextEditor({ value, onChange }: RichTextEditorProps)
       formData.append("file", file);
 
       try {
+        const token = localStorage.getItem("admin_token");
         // Upload image to our Supabase API Route
         const res = await fetch("/api/upload", {
           method: "POST",
           body: formData,
+          headers: { "Authorization": `Bearer ${token}` }
         });
         
         const data = await res.json();
