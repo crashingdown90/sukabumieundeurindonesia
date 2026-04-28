@@ -179,14 +179,12 @@ export default function BiographyPage() {
                 </p>
               </div>
 
-              {/* Injeksi Visual Dokumentasi Era */}
-              <div style={{ flex: "1", minHeight: "200px", position: "relative", border: "4px solid var(--color-text-primary)" }}>
-                <Image 
-                  src={event.img} 
-                  alt={event.title} 
-                  fill 
-                  style={{ objectFit: "cover", filter: "grayscale(100%) contrast(120%)" }} 
-                />
+              {/* Elemen Visual (Kosong untuk memberi ruang bagi zigzag layout) */}
+              <div className="timeline-spacer" style={{ flex: "1", display: "flex", alignItems: "center", justifyContent: index % 2 === 0 ? "flex-end" : "flex-start" }}>
+                {/* Teks Tahun Transparan */}
+                <h3 style={{ fontSize: "5rem", color: "transparent", WebkitTextStroke: "2px var(--color-border)", opacity: 0.5 }}>
+                  {event.date.split(" ")[2]}
+                </h3>
               </div>
 
             </div>
