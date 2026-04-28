@@ -59,7 +59,7 @@ export default function RootLayout({
             {/* Column 1: Brand */}
             <div style={{ paddingRight: "20px" }}>
               <Image src="/logo-sukabumi.png" alt="Sukabumi Eundeur Logo" width={200} height={80} style={{ objectFit: "contain", height: "60px", width: "auto", filter: "invert(1)", marginBottom: "24px", opacity: 0.9 }} />
-              <p style={{ color: "var(--color-bg-secondary)", lineHeight: "1.6", fontSize: "0.95rem" }}>
+              <p style={{ color: "var(--color-text-secondary)", lineHeight: "1.6", fontSize: "0.95rem" }}>
                 Portal distribusi tiket resmi yang dikelola oleh PT. Sukabumi Eundeur Holding. Kami berkomitmen menghadirkan layanan transaksi yang aman dan terpercaya untuk mendukung ekosistem acara independen.
               </p>
             </div>
@@ -69,9 +69,9 @@ export default function RootLayout({
               <input type="checkbox" id="footer-toggle-1" className="footer-toggle" />
               <label htmlFor="footer-toggle-1" className="footer-summary">SITEMAP</label>
               <ul className="footer-content" style={{ listStyle: "none", padding: 0, flexDirection: "column", gap: "12px", fontSize: "0.95rem" }}>
-                <li><a href="/" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>Events</a></li>
-                <li><a href="/my-tickets" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>My Tickets</a></li>
-                <li><a href="/help" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>Help & FAQ</a></li>
+                <li><a href="/" style={{ color: "var(--color-text-secondary)", textDecoration: "none" }}>Events</a></li>
+                <li><a href="/my-tickets" style={{ color: "var(--color-text-secondary)", textDecoration: "none" }}>My Tickets</a></li>
+                <li><a href="/help" style={{ color: "var(--color-text-secondary)", textDecoration: "none" }}>Help & FAQ</a></li>
               </ul>
             </div>
 
@@ -80,10 +80,10 @@ export default function RootLayout({
               <input type="checkbox" id="footer-toggle-2" className="footer-toggle" />
               <label htmlFor="footer-toggle-2" className="footer-summary">PORTAL & KEBIJAKAN</label>
               <ul className="footer-content" style={{ listStyle: "none", padding: 0, flexDirection: "column", gap: "12px", fontSize: "0.95rem" }}>
-                <li><a href="https://sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>Main Site ↗</a></li>
-                <li><a href="https://shop.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-bg-secondary)", textDecoration: "none" }}>Official Merchandise ↗</a></li>
-                <li style={{ marginTop: "12px" }}><a href="https://news.sukabumieundeurindonesia.com/privacy-policy" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-bg-secondary)" }}>Privacy Policy</a></li>
-                <li><a href="https://news.sukabumieundeurindonesia.com/terms" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-bg-secondary)" }}>Terms & Conditions</a></li>
+                <li><a href="https://sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-text-secondary)", textDecoration: "none" }}>Main Site ↗</a></li>
+                <li><a href="https://shop.sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-text-secondary)", textDecoration: "none" }}>Official Merchandise ↗</a></li>
+                <li style={{ marginTop: "12px" }}><a href="https://news.sukabumieundeurindonesia.com/privacy-policy" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-text-secondary)" }}>Privacy Policy</a></li>
+                <li><a href="https://news.sukabumieundeurindonesia.com/terms" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-text-secondary)" }}>Terms & Conditions</a></li>
               </ul>
             </div>
 
@@ -91,7 +91,7 @@ export default function RootLayout({
             <div className="footer-accordion">
               <input type="checkbox" id="footer-toggle-3" className="footer-toggle" />
               <label htmlFor="footer-toggle-3" className="footer-summary">CONTACT TICKETBOX</label>
-              <ul className="footer-content" style={{ listStyle: "none", padding: 0, flexDirection: "column", gap: "12px", color: "var(--color-bg-secondary)", fontSize: "0.95rem" }}>
+              <ul className="footer-content" style={{ listStyle: "none", padding: 0, flexDirection: "column", gap: "12px", color: "var(--color-text-secondary)", fontSize: "0.95rem" }}>
                 <li>Email: ticket@sukabumieundeurindonesia.com</li>
                 <li>WA: +62 812 3456 7890</li>
               </ul>
