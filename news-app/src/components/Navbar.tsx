@@ -15,20 +15,44 @@ export default function Navbar() {
       <div 
         className="hamburger" 
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        style={{ cursor: "pointer", zIndex: 1100 }}
+        style={{ cursor: "pointer", zIndex: 1100, padding: "8px" }}
       >
-        <div style={{ width: "30px", height: "3px", backgroundColor: isMobileMenuOpen ? "var(--color-bg-primary)" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s", transform: isMobileMenuOpen ? "rotate(-45deg) translate(-5px, 6px)" : "none" }}></div>
-        <div style={{ width: "30px", height: "3px", backgroundColor: isMobileMenuOpen ? "transparent" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s" }}></div>
-        <div style={{ width: "30px", height: "3px", backgroundColor: isMobileMenuOpen ? "var(--color-bg-primary)" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s", transform: isMobileMenuOpen ? "rotate(45deg) translate(-5px, -6px)" : "none" }}></div>
+        <div style={{ width: "36px", height: "4px", backgroundColor: isMobileMenuOpen ? "var(--color-bg-primary)" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s", transform: isMobileMenuOpen ? "rotate(-45deg) translate(-6px, 8px)" : "none" }}></div>
+        <div style={{ width: "36px", height: "4px", backgroundColor: isMobileMenuOpen ? "transparent" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s" }}></div>
+        <div style={{ width: "36px", height: "4px", backgroundColor: isMobileMenuOpen ? "var(--color-bg-primary)" : "var(--color-text-primary)", margin: "6px 0", transition: "0.4s", transform: isMobileMenuOpen ? "rotate(45deg) translate(-6px, -8px)" : "none" }}></div>
       </div>
 
       {/* Desktop & Mobile Navigation Links */}
       <div className={`nav-links-wrapper ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
         <div className="nav-links" style={{ fontSize: "0.95rem", letterSpacing: "1px", display: "flex", gap: "24px", alignItems: "center", fontWeight: "bold", textTransform: "uppercase" }}>
-          <a href="/" onClick={() => setIsMobileMenuOpen(false)}>BERITA UTAMA</a>
-          <a href="/gigs" onClick={() => setIsMobileMenuOpen(false)}>GIGS</a>
-          <a href="/review" onClick={() => setIsMobileMenuOpen(false)}>REVIEW</a>
+          
+          <div className="nav-item">
+            <a href="/">BERITA ▾</a>
+            <div className="dropdown-menu">
+              <a href="/" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>BERITA UTAMA</a>
+              <a href="/artikel/metalhead-kesehatan" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>SAINS & MUSIK</a>
+              <a href="/artikel/kebangkitan-skena" className="dropdown-link" style={{ padding: "8px 0" }} onClick={() => setIsMobileMenuOpen(false)}>SKENA LOKAL</a>
+            </div>
+          </div>
+
+          <div className="nav-item">
+            <a href="/gigs">GIGS ▾</a>
+            <div className="dropdown-menu">
+              <a href="/gigs" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>UPCOMING GIGS</a>
+              <a href="/gigs" className="dropdown-link" style={{ padding: "8px 0" }} onClick={() => setIsMobileMenuOpen(false)}>PAST GIGS</a>
+            </div>
+          </div>
+
+          <div className="nav-item">
+            <a href="/review">REVIEW ▾</a>
+            <div className="dropdown-menu">
+              <a href="/review" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>REVIEW ALBUM</a>
+              <a href="/review" className="dropdown-link" style={{ padding: "8px 0" }} onClick={() => setIsMobileMenuOpen(false)}>REVIEW GIG</a>
+            </div>
+          </div>
+
           <a href="/interview" onClick={() => setIsMobileMenuOpen(false)}>INTERVIEW</a>
+
           <a href="https://sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" className="main-site-btn" onClick={() => setIsMobileMenuOpen(false)}>MAIN SITE</a>
         </div>
       </div>
