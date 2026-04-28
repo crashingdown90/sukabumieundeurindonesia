@@ -100,6 +100,7 @@ export default function RootLayout({
           </div>
           
           <div className="container" style={{ textAlign: "center", borderTop: "1px solid #333", paddingTop: "24px", color: "#888", fontSize: "0.9rem" }}>
+            <Image src="/list-payment.png" alt="Supported Payment Methods" width={500} height={50} style={{ objectFit: "contain", maxWidth: "100%", height: "auto", marginBottom: "24px", filter: "grayscale(100%) opacity(0.7) brightness(1.2)" }} />
             <p>&copy; {new Date().getFullYear()} Sukabumi Eundeur Indonesia. All rights reserved.</p>
           </div>
         </footer>
