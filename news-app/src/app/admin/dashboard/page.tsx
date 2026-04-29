@@ -80,17 +80,14 @@ export default function AdminDashboard() {
 
         {/* Quick Actions */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "clamp(12px, 3vw, 16px)", marginBottom: "clamp(32px, 6vw, 40px)" }}>
-          <Link href="/admin/articles/new" className="product-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "clamp(16px, 4vw, 24px)", backgroundColor: "var(--color-text-primary)", color: "var(--color-bg-primary)", textAlign: "center", textDecoration: "none", borderRadius: "8px" }}>
-            <span style={{ fontSize: "clamp(1.5rem, 5vw, 2rem)", marginBottom: "8px", lineHeight: "1" }}>+</span>
-            <span style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(0.85rem, 2.5vw, 1.1rem)", letterSpacing: "1px" }}>BUAT ARTIKEL BARU</span>
+          <Link href="/admin/articles/new" className="product-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "clamp(20px, 5vw, 32px)", backgroundColor: "var(--color-text-primary)", color: "var(--color-bg-primary)", textAlign: "center", textDecoration: "none", borderRadius: "8px" }}>
+            <span style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1rem, 3vw, 1.2rem)", letterSpacing: "1px", fontWeight: "bold" }}>BUAT ARTIKEL BARU</span>
           </Link>
-          <Link href="/admin/articles" className="product-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "clamp(16px, 4vw, 24px)", border: "1px solid var(--color-border)", backgroundColor: "var(--color-bg-secondary)", textAlign: "center", textDecoration: "none", color: "var(--color-text-primary)", borderRadius: "8px" }}>
-            <span style={{ fontSize: "clamp(1.5rem, 5vw, 2rem)", marginBottom: "8px", lineHeight: "1" }}>📋</span>
-            <span style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(0.85rem, 2.5vw, 1.1rem)", letterSpacing: "1px" }}>KELOLA ARTIKEL</span>
+          <Link href="/admin/articles" className="product-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "clamp(20px, 5vw, 32px)", border: "1px solid var(--color-border)", backgroundColor: "var(--color-bg-secondary)", textAlign: "center", textDecoration: "none", color: "var(--color-text-primary)", borderRadius: "8px" }}>
+            <span style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1rem, 3vw, 1.2rem)", letterSpacing: "1px", fontWeight: "bold" }}>KELOLA ARTIKEL</span>
           </Link>
-          <Link href="/admin/media" className="product-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "clamp(16px, 4vw, 24px)", border: "1px solid var(--color-border)", backgroundColor: "var(--color-bg-secondary)", textAlign: "center", textDecoration: "none", color: "var(--color-text-primary)", borderRadius: "8px" }}>
-            <span style={{ fontSize: "clamp(1.5rem, 5vw, 2rem)", marginBottom: "8px", lineHeight: "1" }}>🖼️</span>
-            <span style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(0.85rem, 2.5vw, 1.1rem)", letterSpacing: "1px" }}>GALERI MEDIA</span>
+          <Link href="/admin/media" className="product-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "clamp(20px, 5vw, 32px)", border: "1px solid var(--color-border)", backgroundColor: "var(--color-bg-secondary)", textAlign: "center", textDecoration: "none", color: "var(--color-text-primary)", borderRadius: "8px" }}>
+            <span style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1rem, 3vw, 1.2rem)", letterSpacing: "1px", fontWeight: "bold" }}>GALERI MEDIA</span>
           </Link>
         </div>
 
