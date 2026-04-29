@@ -28,6 +28,19 @@ async function getArticle(slug: string) {
   };
 }
 
+async function getRelatedArticles(category: string, currentSlug: string) {
+  const { data, error } = await supabase
+    .from("articles")
+    .select("slug, title, category, image")
+    .eq("status", "published")
+    .eq("category", category)
+    .neq("slug", currentSlug)
+    .limit(3);
+
+  if (error || !data) return [];
+  return data;
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
   const article = await getArticle(resolvedParams.slug);
@@ -41,7 +54,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: article.title,
       description: article.metaDescription || article.content.substring(0, 150) + "...",
       images: [article.image],
+      url: `https://news.sukabumieundeurindonesia.com/artikel/${article.slug}`
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.metaDescription || article.content.substring(0, 150) + "...",
+      images: [article.image],
+    }
   };
 }
 
@@ -53,7 +73,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     notFound();
   }
 
-
+  const relatedArticles = await getRelatedArticles(article.category, article.slug);
+  const currentUrl = `https://news.sukabumieundeurindonesia.com/artikel/${article.slug}`;
 
   return (
     <>
@@ -111,8 +132,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             </div>
             
             <div style={{ display: "flex", gap: "16px" }}>
-              <button style={{ backgroundColor: "transparent", border: "1px solid var(--color-border)", color: "var(--color-text-primary)", padding: "8px 16px", cursor: "pointer", fontFamily: "var(--font-heading)", letterSpacing: "1px" }}>SHARE FB</button>
-              <button style={{ backgroundColor: "transparent", border: "1px solid var(--color-border)", color: "var(--color-text-primary)", padding: "8px 16px", cursor: "pointer", fontFamily: "var(--font-heading)", letterSpacing: "1px" }}>SHARE X</button>
+              <a href={`https://api.whatsapp.com/send?text=${encodeURIComponent(article.title + " - " + currentUrl)}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", backgroundColor: "transparent", border: "1px solid var(--color-border)", color: "var(--color-text-primary)", padding: "8px 16px", cursor: "pointer", fontFamily: "var(--font-heading)", letterSpacing: "1px" }}>SHARE WA</a>
+              <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(article.title)}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", backgroundColor: "transparent", border: "1px solid var(--color-border)", color: "var(--color-text-primary)", padding: "8px 16px", cursor: "pointer", fontFamily: "var(--font-heading)", letterSpacing: "1px" }}>SHARE X</a>
             </div>
           </div>
         </div>
@@ -128,25 +149,19 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           <h3 style={{ fontSize: "1.5rem", borderBottom: "1px solid var(--color-border)", paddingBottom: "12px", marginBottom: "24px", fontFamily: "var(--font-heading)", letterSpacing: "1px" }}>BACA JUGA</h3>
           
           <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-            <Link href="/" style={{ textDecoration: "none", color: "inherit" }} className="hover-opacity">
-              <div style={{ display: "flex", gap: "16px" }}>
-                <div style={{ width: "100px", height: "100px", backgroundColor: "var(--color-bg-secondary)", backgroundImage: "url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=200&auto=format&fit=crop')", backgroundSize: "cover", filter: "grayscale(100%)" }}></div>
-                <div style={{ flex: 1 }}>
-                  <span style={{ fontSize: "0.75rem", color: "var(--color-text-secondary)", fontFamily: "var(--font-heading)", letterSpacing: "1px" }}>REVIEW ALBUM</span>
-                  <h4 style={{ fontSize: "1rem", lineHeight: "1.3", marginTop: "4px" }}>Membedah Album Terbaru &apos;Total Aggression&apos;</h4>
+            {relatedArticles.length > 0 ? relatedArticles.map((related) => (
+              <Link key={related.slug} href={`/artikel/${related.slug}`} style={{ textDecoration: "none", color: "inherit" }} className="hover-opacity">
+                <div style={{ display: "flex", gap: "16px" }}>
+                  <div style={{ width: "100px", height: "100px", backgroundColor: "var(--color-bg-secondary)", backgroundImage: `url('${related.image && related.image !== "" ? related.image : "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=200&auto=format&fit=crop"}')`, backgroundSize: "cover", filter: "grayscale(100%)" }}></div>
+                  <div style={{ flex: 1 }}>
+                    <span style={{ fontSize: "0.75rem", color: "var(--color-text-secondary)", fontFamily: "var(--font-heading)", letterSpacing: "1px" }}>{related.category.replace(/-/g, ' ').toUpperCase()}</span>
+                    <h4 style={{ fontSize: "1rem", lineHeight: "1.3", marginTop: "4px" }}>{related.title}</h4>
+                  </div>
                 </div>
-              </div>
-            </Link>
-            
-            <Link href="/" style={{ textDecoration: "none", color: "inherit" }} className="hover-opacity">
-              <div style={{ display: "flex", gap: "16px" }}>
-                <div style={{ width: "100px", height: "100px", backgroundColor: "var(--color-bg-secondary)", backgroundImage: "url('https://images.unsplash.com/photo-1493225457124-a1a2a5f014e3?q=80&w=200&auto=format&fit=crop')", backgroundSize: "cover", filter: "grayscale(100%)" }}></div>
-                <div style={{ flex: 1 }}>
-                  <span style={{ fontSize: "0.75rem", color: "var(--color-text-secondary)", fontFamily: "var(--font-heading)", letterSpacing: "1px" }}>INTERVIEW</span>
-                  <h4 style={{ fontSize: "1rem", lineHeight: "1.3", marginTop: "4px" }}>Eksklusif: Di Balik Dapur Rekaman Burgerkill</h4>
-                </div>
-              </div>
-            </Link>
+              </Link>
+            )) : (
+              <p style={{ color: "var(--color-text-secondary)" }}>Belum ada berita terkait.</p>
+            )}
           </div>
 
         </div>

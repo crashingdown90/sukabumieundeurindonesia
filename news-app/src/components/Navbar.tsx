@@ -50,14 +50,14 @@ export default function Navbar() {
               <Link href="/" className="hover-opacity">BERITA ▾</Link>
               <div className="dropdown-menu">
                 <Link href="/" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>BERITA UTAMA</Link>
-                <Link href="/artikel/metalhead-kesehatan" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>SAINS & MUSIK</Link>
-                <Link href="/artikel/kebangkitan-skena" className="dropdown-link" style={{ padding: "8px 0" }} onClick={() => setIsMobileMenuOpen(false)}>SKENA LOKAL</Link>
+                <Link href="/kategori/sains-musik" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>SAINS & MUSIK</Link>
+                <Link href="/kategori/skena-lokal" className="dropdown-link" style={{ padding: "8px 0" }} onClick={() => setIsMobileMenuOpen(false)}>SKENA LOKAL</Link>
               </div>
             </div>
 
-            <Link href="/gigs" className="hover-opacity" onClick={() => setIsMobileMenuOpen(false)}>GIGS</Link>
-            <Link href="/review" className="hover-opacity" onClick={() => setIsMobileMenuOpen(false)}>REVIEW</Link>
-            <Link href="/interview" className="hover-opacity" onClick={() => setIsMobileMenuOpen(false)}>INTERVIEW</Link>
+            <Link href="/kategori/gigs" className="hover-opacity" onClick={() => setIsMobileMenuOpen(false)}>GIGS</Link>
+            <Link href="/kategori/review-album" className="hover-opacity" onClick={() => setIsMobileMenuOpen(false)}>REVIEW</Link>
+            <Link href="/kategori/interview" className="hover-opacity" onClick={() => setIsMobileMenuOpen(false)}>INTERVIEW</Link>
             {/* CROSS NAVIGATION */}
             <Link href="https://shop.sukabumieundeurindonesia.com" className="hover-opacity main-site-btn" style={{ padding: "8px 20px", fontSize: "0.9rem", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.1)", backdropFilter: "blur(5px)" }} onClick={() => setIsMobileMenuOpen(false)}>MERCH</Link>
             <Link href="https://ticket.sukabumieundeurindonesia.com" className="hover-opacity main-site-btn" style={{ padding: "8px 20px", fontSize: "0.9rem", borderRadius: "20px", border: "1px solid var(--color-primary)", background: "var(--color-primary)", color: "var(--color-bg-primary)" }} onClick={() => setIsMobileMenuOpen(false)}>BELI TIKET</Link>

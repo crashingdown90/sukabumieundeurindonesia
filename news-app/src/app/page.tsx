@@ -1,13 +1,14 @@
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 
-// Fetch articles from Supabase
-async function getArticles() {
+// Fetch articles from Supabase with a limit
+async function getArticles(limit: number) {
   const { data, error } = await supabase
     .from("articles")
     .select("*")
     .eq("status", "published")
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: false })
+    .limit(limit);
 
   if (error || !data) return [];
   
@@ -24,13 +25,21 @@ async function getArticles() {
   }));
 }
 
-export default async function NewsHome() {
-  const publishedArticles = await getArticles();
+export default async function NewsHome({
+  searchParams,
+}: {
+  searchParams: { limit?: string };
+}) {
+  const currentLimit = searchParams.limit ? parseInt(searchParams.limit) : 7; // 1 Headline + 6 Recent
+  const publishedArticles = await getArticles(currentLimit + 1); // Fetch 1 extra to check if there are more
   
+  const hasMore = publishedArticles.length > currentLimit;
+  const articlesToShow = publishedArticles.slice(0, currentLimit);
+
   // The first article is the Headline/Top Story
-  const headline = publishedArticles.length > 0 ? publishedArticles[0] : null;
+  const headline = articlesToShow.length > 0 ? articlesToShow[0] : null;
   // The rest are grid articles
-  const recentArticles = publishedArticles.slice(1);
+  const recentArticles = articlesToShow.slice(1);
 
   return (
     <>
@@ -116,6 +125,15 @@ export default async function NewsHome() {
             )}
 
           </div>
+          
+          {/* LOAD MORE BUTTON */}
+          {hasMore && (
+            <div style={{ textAlign: "center", marginTop: "40px" }}>
+              <Link href={`/?limit=${currentLimit + 6}`} className="btn" style={{ padding: "16px 40px", fontSize: "1rem", letterSpacing: "2px", border: "2px solid var(--color-text-primary)", backgroundColor: "transparent", color: "var(--color-text-primary)", transition: "0.3s" }}>
+                MUAT LEBIH BANYAK
+              </Link>
+            </div>
+          )}
         </div>
 
       </div>
