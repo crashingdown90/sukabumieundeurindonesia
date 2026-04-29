@@ -79,7 +79,7 @@ export default function Shop() {
           width: "90%"
         }}>
           <h1 style={{ fontSize: "clamp(3rem, 8vw, 6rem)", marginBottom: "16px", textShadow: "4px 4px 0 #000", lineHeight: "1" }}>
-            2024 COLLECTION
+            2026 COLLECTION
           </h1>
           <p style={{ fontSize: "clamp(1.2rem, 3vw, 2rem)", fontWeight: "bold", letterSpacing: "2px", textShadow: "2px 2px 0 #000" }}>
             WEAR YOUR DISTORTION

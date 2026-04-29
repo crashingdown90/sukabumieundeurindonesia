@@ -7,11 +7,11 @@ import Navbar from "../components/Navbar";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Beli Tiket Resmi Sukabumi Eundeur Festival 2024 - Official Ticket",
+  title: "Beli Tiket Resmi Sukabumi Eundeur Festival 2026 - Official Ticket",
   description: "Platform resmi pembelian tiket untuk semua event, gigs, dan festival musik keras bawah tanah yang diselenggarakan oleh Sukabumi Eundeur Indonesia. 100% aman dan terpercaya.",
   keywords: "tiket konser sukabumi, tiket sukabumi eundeur, tiket burgerkill, tiket deadsquad, festival metal sukabumi, gigs underground, tiket online",
   openGraph: {
-    title: "Beli Tiket Resmi Sukabumi Eundeur Festival 2024",
+    title: "Beli Tiket Resmi Sukabumi Eundeur Festival 2026",
     description: "Platform resmi pembelian tiket event Sukabumi Eundeur Indonesia.",
     url: "https://ticket.sukabumieundeurindonesia.com",
     siteName: "Sukabumi Eundeur Ticket",
