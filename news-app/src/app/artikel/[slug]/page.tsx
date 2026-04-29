@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 
+export const revalidate = 60; // Refresh data setiap 60 detik
+
 // This runs on the server
 async function getArticle(slug: string) {
   const { data: article, error } = await supabase

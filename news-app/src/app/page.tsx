@@ -1,6 +1,9 @@
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 
+export const revalidate = 60; // Refresh data setiap 60 detik
+
+
 // Fetch articles from Supabase with a limit
 async function getArticles(limit: number) {
   const { data, error } = await supabase
