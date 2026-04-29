@@ -162,6 +162,24 @@ export default function NewArticle() {
             <input name="metaDescription" value={form.metaDescription} onChange={handleChange} placeholder="Deskripsi singkat untuk mesin pencari (max 160 karakter)" maxLength={160} style={inputStyle} />
           </div>
 
+          <div style={{ backgroundColor: "var(--color-bg-secondary)", padding: "20px", border: "1px solid var(--color-border)", borderRadius: "4px" }}>
+            <label style={labelStyle}>PREVIEW GOOGLE SEARCH (LIVE)</label>
+            <div style={{ marginTop: "12px", padding: "16px", backgroundColor: "#fff", border: "1px solid #ddd", borderRadius: "8px", fontFamily: "arial, sans-serif" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
+                <div style={{ width: "28px", height: "28px", backgroundColor: "#f1f3f4", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>🌍</div>
+                <div>
+                  <div style={{ fontSize: "14px", color: "#202124" }}>Sukabumi Eundeur News</div>
+                  <div style={{ fontSize: "12px", color: "#4d5156" }}>https://news.sukabumieundeurindonesia.com › artikel › {form.slug || 'slug-artikel'}</div>
+                </div>
+              </div>
+              <h3 style={{ color: "#1a0dab", fontSize: "20px", fontWeight: "normal", margin: "4px 0", cursor: "pointer" }}>{form.title || 'Judul Artikel Anda Akan Muncul Di Sini'}</h3>
+              <p style={{ color: "#4d5156", fontSize: "14px", margin: 0, lineHeight: "1.58" }}>
+                {form.date ? `${new Date(form.date).toLocaleDateString('id-ID', {day: 'numeric', month: 'short', year: 'numeric'})} — ` : ''}
+                {form.metaDescription || 'Deskripsi singkat (Meta Description) yang menarik akan muncul di sini. Jika kosong, Google akan mengambil paragraf pertama dari konten Anda secara otomatis.'}
+              </p>
+            </div>
+          </div>
+
           <div>
             <label style={labelStyle}>KONTEN ARTIKEL</label>
             <RichTextEditor value={form.content} onChange={handleContentChange} />

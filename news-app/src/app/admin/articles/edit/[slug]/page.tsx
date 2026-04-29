@@ -18,6 +18,7 @@ export default function EditArticle() {
   const [saving, setSaving] = useState(false);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
+  const [lastSaved, setLastSaved] = useState("");
   const router = useRouter();
   const params = useParams();
   const slug = params.slug as string;
@@ -42,10 +43,23 @@ export default function EditArticle() {
     setForm(prev => ({ ...prev, content: value }));
   };
 
-  const handleSave = async () => {
-    if (!form.title.trim()) { setMessage("Judul wajib diisi."); return; }
-    setSaving(true);
-    setMessage("");
+  // Auto-save logic
+  useEffect(() => {
+    if (loading || !form.title) return;
+    const timer = setTimeout(() => {
+      handleSave(true);
+    }, 15000); // Auto-save 15 detik setelah berhenti mengetik
+    return () => clearTimeout(timer);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [form]);
+
+  const handleSave = async (isAutoSave = false) => {
+    if (!form.title.trim()) { 
+      if (!isAutoSave) setMessage("Judul wajib diisi."); 
+      return; 
+    }
+    if (!isAutoSave) setSaving(true);
+    if (!isAutoSave) setMessage("");
     try {
       const token = localStorage.getItem("admin_token");
       const res = await fetch(`/api/articles/${slug}`, {
@@ -57,13 +71,19 @@ export default function EditArticle() {
         body: JSON.stringify(form),
       });
       if (res.ok) {
-        setMessage("Artikel berhasil diupdate!");
-        setTimeout(() => setMessage(""), 3000);
+        const now = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        if (isAutoSave) {
+          setLastSaved(`Autosaved at ${now}`);
+        } else {
+          setMessage("Artikel berhasil diupdate!");
+          setLastSaved(`Last saved at ${now}`);
+          setTimeout(() => setMessage(""), 3000);
+        }
       }
     } catch {
-      setMessage("Server error.");
+      if (!isAutoSave) setMessage("Server error.");
     }
-    setSaving(false);
+    if (!isAutoSave) setSaving(false);
   };
 
   const handleDelete = async () => {
@@ -91,7 +111,10 @@ export default function EditArticle() {
       <div className="container" style={{ maxWidth: "800px", margin: "0 auto" }}>
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid var(--color-border)", paddingBottom: "24px", marginBottom: "32px", flexWrap: "wrap", gap: "16px" }}>
-          <h1 style={{ fontSize: "2rem", fontFamily: "var(--font-heading)", letterSpacing: "2px" }}>EDIT ARTIKEL</h1>
+          <div>
+            <h1 style={{ fontSize: "2rem", fontFamily: "var(--font-heading)", letterSpacing: "2px" }}>EDIT ARTIKEL</h1>
+            {lastSaved && <p style={{ fontSize: "0.85rem", color: "var(--color-text-secondary)", marginTop: "4px" }}>{lastSaved}</p>}
+          </div>
           <div style={{ display: "flex", gap: "12px" }}>
             <a href="/admin/articles" style={{ padding: "10px 20px", border: "1px solid var(--color-border)", fontSize: "0.9rem", fontFamily: "var(--font-heading)", color: "var(--color-text-secondary)" }}>← KEMBALI</a>
             <button onClick={handleDelete} style={{ padding: "10px 20px", border: "1px solid #ef4444", backgroundColor: "transparent", color: "#ef4444", fontSize: "0.9rem", fontFamily: "var(--font-heading)", cursor: "pointer" }}>HAPUS</button>
@@ -191,6 +214,24 @@ export default function EditArticle() {
             <input name="metaDescription" value={form.metaDescription} onChange={handleChange} maxLength={160} style={inputStyle} />
           </div>
 
+          <div style={{ backgroundColor: "var(--color-bg-secondary)", padding: "20px", border: "1px solid var(--color-border)", borderRadius: "4px" }}>
+            <label style={labelStyle}>PREVIEW GOOGLE SEARCH (LIVE)</label>
+            <div style={{ marginTop: "12px", padding: "16px", backgroundColor: "#fff", border: "1px solid #ddd", borderRadius: "8px", fontFamily: "arial, sans-serif" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
+                <div style={{ width: "28px", height: "28px", backgroundColor: "#f1f3f4", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>🌍</div>
+                <div>
+                  <div style={{ fontSize: "14px", color: "#202124" }}>Sukabumi Eundeur News</div>
+                  <div style={{ fontSize: "12px", color: "#4d5156" }}>https://news.sukabumieundeurindonesia.com › artikel › {form.slug || 'slug-artikel'}</div>
+                </div>
+              </div>
+              <h3 style={{ color: "#1a0dab", fontSize: "20px", fontWeight: "normal", margin: "4px 0", cursor: "pointer" }}>{form.title || 'Judul Artikel Anda Akan Muncul Di Sini'}</h3>
+              <p style={{ color: "#4d5156", fontSize: "14px", margin: 0, lineHeight: "1.58" }}>
+                {form.date ? `${new Date(form.date).toLocaleDateString('id-ID', {day: 'numeric', month: 'short', year: 'numeric'})} — ` : ''}
+                {form.metaDescription || 'Deskripsi singkat (Meta Description) yang menarik akan muncul di sini. Jika kosong, Google akan mengambil paragraf pertama dari konten Anda secara otomatis.'}
+              </p>
+            </div>
+          </div>
+
           <div>
             <label style={labelStyle}>KONTEN ARTIKEL</label>
             <RichTextEditor value={form.content} onChange={handleContentChange} />
@@ -199,7 +240,7 @@ export default function EditArticle() {
           {message && <p style={{ color: message.includes("berhasil") ? "#22c55e" : "#ef4444", fontWeight: "bold" }}>{message}</p>}
 
           <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", borderTop: "1px solid var(--color-border)", paddingTop: "24px" }}>
-            <button onClick={handleSave} disabled={saving} style={{ flex: 1, padding: "16px", fontSize: "1rem", fontFamily: "var(--font-heading)", letterSpacing: "2px", cursor: "pointer", border: "none", backgroundColor: "#22c55e", color: "#fff" }}>
+            <button onClick={() => handleSave(false)} disabled={saving} style={{ flex: 1, padding: "16px", fontSize: "1rem", fontFamily: "var(--font-heading)", letterSpacing: "2px", cursor: "pointer", border: "none", backgroundColor: "#22c55e", color: "#fff" }}>
               {saving ? "UPDATING..." : "UPDATE ARTIKEL"}
             </button>
           </div>

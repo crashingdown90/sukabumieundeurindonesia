@@ -88,6 +88,10 @@ export default function AdminDashboard() {
             <span style={{ fontSize: "2rem", marginBottom: "12px", lineHeight: "1" }}>📋</span>
             <span style={{ fontFamily: "var(--font-heading)", fontSize: "1.1rem", letterSpacing: "1px" }}>KELOLA ARTIKEL</span>
           </Link>
+          <Link href="/admin/media" className="product-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "24px", border: "1px solid var(--color-border)", backgroundColor: "var(--color-bg-secondary)", textAlign: "center", textDecoration: "none", color: "var(--color-text-primary)", borderRadius: "8px" }}>
+            <span style={{ fontSize: "2rem", marginBottom: "12px", lineHeight: "1" }}>🖼️</span>
+            <span style={{ fontFamily: "var(--font-heading)", fontSize: "1.1rem", letterSpacing: "1px" }}>GALERI MEDIA</span>
+          </Link>
         </div>
 
         {/* Recent Articles */}
