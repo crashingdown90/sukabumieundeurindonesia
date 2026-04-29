@@ -7,6 +7,9 @@ import Navbar from "../components/Navbar";
 export const metadata: Metadata = {
   title: "Sukabumi Eundeur Indonesia",
   description: "Website resmi Sukabumi Eundeur Indonesia - Komunitas Musik Metal & Rock",
+  verification: {
+    google: "9yWnWHR-ZcG9FN-0YqUQjrd1WcigetavwhtgHSpB6Pk",
+  },
 };
 
 export default function RootLayout({
