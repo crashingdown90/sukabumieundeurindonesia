@@ -54,7 +54,7 @@ export default function AdminDashboard() {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", borderBottom: "1px solid var(--color-border)", paddingBottom: "12px", marginBottom: "24px", flexWrap: "wrap", gap: "12px" }}>
           <div>
             <h1 style={{ fontSize: "1.5rem", fontFamily: "var(--font-heading)", letterSpacing: "2px", lineHeight: "1" }}>DASHBOARD</h1>
-            <p style={{ color: "var(--color-text-secondary)", fontSize: "0.8rem", marginTop: "4px", letterSpacing: "1px" }}>PANEL REDAKSI</p>
+            <p style={{ color: "var(--color-text-secondary)", fontSize: "0.8rem", marginTop: "4px", letterSpacing: "1px" }}>EUNDEUR NEWS</p>
           </div>
           <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
             <Link href="/" className="btn" style={{ padding: "6px 12px", fontSize: "0.75rem", backgroundColor: "transparent", color: "var(--color-text-primary)", border: "1px solid var(--color-border)" }}>← NEWS</Link>
