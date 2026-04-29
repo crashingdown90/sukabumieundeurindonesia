@@ -31,9 +31,10 @@ async function getArticles(limit: number) {
 export default async function NewsHome({
   searchParams,
 }: {
-  searchParams: { limit?: string };
+  searchParams: Promise<{ limit?: string }>;
 }) {
-  const currentLimit = searchParams.limit ? parseInt(searchParams.limit) : 7; // 1 Headline + 6 Recent
+  const resolvedParams = await searchParams;
+  const currentLimit = resolvedParams.limit ? parseInt(resolvedParams.limit) : 7; // 1 Headline + 6 Recent
   const publishedArticles = await getArticles(currentLimit + 1); // Fetch 1 extra to check if there are more
   
   const hasMore = publishedArticles.length > currentLimit;

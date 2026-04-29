@@ -32,7 +32,7 @@ async function getCategoryArticles(slug: string) {
 }
 
 type Props = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 };
 
 // SEO Metadata for Category
@@ -40,7 +40,8 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const categoryName = params.slug.replace(/-/g, " ").toUpperCase();
+  const resolvedParams = await params;
+  const categoryName = resolvedParams.slug.replace(/-/g, " ").toUpperCase();
   return {
     title: `Berita ${categoryName} - Sukabumi Eundeur News`,
     description: `Kumpulan berita, artikel, dan ulasan terbaru seputar ${categoryName} di ekosistem bawah tanah Sukabumi Eundeur.`,
@@ -52,8 +53,9 @@ export async function generateMetadata(
 }
 
 export default async function CategoryPage({ params }: Props) {
-  const articles = await getCategoryArticles(params.slug);
-  const categoryName = params.slug.replace(/-/g, " ").toUpperCase();
+  const resolvedParams = await params;
+  const articles = await getCategoryArticles(resolvedParams.slug);
+  const categoryName = resolvedParams.slug.replace(/-/g, " ").toUpperCase();
 
   if (articles.length === 0) {
     return (
