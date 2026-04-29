@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,9 +24,9 @@ export default function Navbar() {
 
   return (
     <nav className="container nav-container" style={{ padding: "24px", borderBottom: "1px solid var(--color-border)", display: "flex", justifyContent: "space-between", alignItems: "center", position: "relative" }}>
-      <a href="/" style={{ display: "flex", alignItems: "center", zIndex: 1100 }}>
+      <Link href="/" style={{ display: "flex", alignItems: "center", zIndex: 1100 }}>
         <Image src="/logo-sukabumi.png" alt="Sukabumi Eundeur Logo" width={250} height={80} style={{ objectFit: "contain", height: "50px", width: "auto", filter: "invert(1)" }} priority />
-      </a>
+      </Link>
 
       {/* Hamburger Icon for Mobile */}
       <div 
@@ -43,44 +44,45 @@ export default function Navbar() {
         <div className="nav-links" style={{ fontSize: "0.95rem", letterSpacing: "1px", display: "flex", gap: "24px", alignItems: "center", fontWeight: "bold" }}>
           
           <div className="nav-item">
-            <a href="/" onClick={(e) => toggleDropdown("events", e)} style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+            <Link href="/" onClick={(e) => toggleDropdown("events", e as any)} style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
               BROWSE EVENTS <span style={{ fontSize: "0.7rem", transition: "0.2s", transform: activeDropdown === "events" ? "rotate(180deg)" : "none" }}>▼</span>
-            </a>
+            </Link>
             <div className={`dropdown-menu ${activeDropdown === "events" ? "force-open" : ""}`}>
-              <a href="/category/music-concerts" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>MUSIC & CONCERTS</a>
-              <a href="/category/festivals" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>FESTIVALS</a>
-              <a href="/category/underground-gigs" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>UNDERGROUND GIGS</a>
-              <a href="/category/workshops" className="dropdown-link" style={{ padding: "8px 0" }} onClick={() => setIsMobileMenuOpen(false)}>WORKSHOPS</a>
+              <Link href="/category/music-concerts" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>MUSIC & CONCERTS</Link>
+              <Link href="/category/festivals" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>FESTIVALS</Link>
+              <Link href="/category/underground-gigs" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>UNDERGROUND GIGS</Link>
+              <Link href="/category/workshops" className="dropdown-link" style={{ padding: "8px 0" }} onClick={() => setIsMobileMenuOpen(false)}>WORKSHOPS</Link>
             </div>
           </div>
 
           <div className="nav-item">
-            <a href="/my-tickets" onClick={(e) => toggleDropdown("tickets", e)} style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+            <Link href="/my-tickets" onClick={(e) => toggleDropdown("tickets", e as any)} style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
               MY TICKETS <span style={{ fontSize: "0.7rem", transition: "0.2s", transform: activeDropdown === "tickets" ? "rotate(180deg)" : "none" }}>▼</span>
-            </a>
+            </Link>
             <div className={`dropdown-menu ${activeDropdown === "tickets" ? "force-open" : ""}`}>
-              <a href="/my-tickets/active" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>ACTIVE TICKETS</a>
-              <a href="/my-tickets/history" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>PURCHASE HISTORY</a>
-              <a href="/my-tickets/payment" className="dropdown-link" style={{ padding: "8px 0" }} onClick={() => setIsMobileMenuOpen(false)}>PAYMENT STATUS</a>
+              <Link href="/my-tickets/active" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>ACTIVE TICKETS</Link>
+              <Link href="/my-tickets/history" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>PURCHASE HISTORY</Link>
+              <Link href="/my-tickets/payment" className="dropdown-link" style={{ padding: "8px 0" }} onClick={() => setIsMobileMenuOpen(false)}>PAYMENT STATUS</Link>
             </div>
           </div>
 
           <div className="nav-item">
-            <a href="/help" onClick={(e) => toggleDropdown("help", e)} style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+            <Link href="/help" onClick={(e) => toggleDropdown("help", e as any)} style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
               SUPPORT <span style={{ fontSize: "0.7rem", transition: "0.2s", transform: activeDropdown === "help" ? "rotate(180deg)" : "none" }}>▼</span>
-            </a>
+            </Link>
             <div className={`dropdown-menu ${activeDropdown === "help" ? "force-open" : ""}`}>
-              <a href="/help/faq" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>FAQ & HELP CENTER</a>
-              <a href="/help/refund" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>REFUND POLICY</a>
-              <a href="/help/contact" className="dropdown-link" style={{ padding: "8px 0" }} onClick={() => setIsMobileMenuOpen(false)}>CONTACT PROMOTER</a>
+              <Link href="/help/faq" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>FAQ & HELP CENTER</Link>
+              <Link href="/help/refund" className="dropdown-link" style={{ padding: "8px 0", borderBottom: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>REFUND POLICY</Link>
+              <Link href="/help/contact" className="dropdown-link" style={{ padding: "8px 0" }} onClick={() => setIsMobileMenuOpen(false)}>CONTACT PROMOTER</Link>
             </div>
           </div>
 
           <div className="nav-item" style={{ marginLeft: "auto", marginRight: "12px" }}>
-            <a href="/login" style={{ padding: "8px 16px", fontSize: "1rem", border: "2px solid var(--color-text-primary)", fontWeight: "bold" }} onClick={() => setIsMobileMenuOpen(false)}>LOGIN / REGISTER</a>
+            <Link href="/login" style={{ padding: "8px 16px", fontSize: "1rem", border: "2px solid var(--color-text-primary)", fontWeight: "bold" }} onClick={() => setIsMobileMenuOpen(false)}>LOGIN / REGISTER</Link>
           </div>
 
-          <a href="https://sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary main-site-btn" style={{ padding: "8px 16px", fontSize: "1rem" }} onClick={() => setIsMobileMenuOpen(false)}>MAIN SITE</a>
+          <Link href="https://www.sukabumieundeurindonesia.com" className="btn btn-primary main-site-btn" style={{ padding: "8px 16px", fontSize: "1rem" }} onClick={() => setIsMobileMenuOpen(false)}>BERITA</Link>
+          <Link href="https://shop.sukabumieundeurindonesia.com" className="btn btn-primary main-site-btn" style={{ padding: "8px 16px", fontSize: "1rem", backgroundColor: "var(--color-bg-primary)", color: "var(--color-text-primary)", border: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>MERCH</Link>
         </div>
       </div>
     </nav>

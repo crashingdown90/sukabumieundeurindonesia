@@ -58,8 +58,9 @@ export default function Navbar() {
             <Link href="/gigs" className="hover-opacity" onClick={() => setIsMobileMenuOpen(false)}>GIGS</Link>
             <Link href="/review" className="hover-opacity" onClick={() => setIsMobileMenuOpen(false)}>REVIEW</Link>
             <Link href="/interview" className="hover-opacity" onClick={() => setIsMobileMenuOpen(false)}>INTERVIEW</Link>
-            
-            <a href="https://sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" className="hover-opacity main-site-btn" style={{ padding: "8px 20px", fontSize: "0.9rem", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.1)", backdropFilter: "blur(5px)" }} onClick={() => setIsMobileMenuOpen(false)}>MAIN SITE</a>
+            {/* CROSS NAVIGATION */}
+            <Link href="https://shop.sukabumieundeurindonesia.com" className="hover-opacity main-site-btn" style={{ padding: "8px 20px", fontSize: "0.9rem", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.1)", backdropFilter: "blur(5px)" }} onClick={() => setIsMobileMenuOpen(false)}>MERCH</Link>
+            <Link href="https://ticket.sukabumieundeurindonesia.com" className="hover-opacity main-site-btn" style={{ padding: "8px 20px", fontSize: "0.9rem", borderRadius: "20px", border: "1px solid var(--color-primary)", background: "var(--color-primary)", color: "var(--color-bg-primary)" }} onClick={() => setIsMobileMenuOpen(false)}>BELI TIKET</Link>
           </div>
         </div>
       </div>

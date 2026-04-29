@@ -120,7 +120,9 @@ export default function Navbar() {
               <a href="/login" style={{ padding: "8px 16px", fontSize: "1rem", border: "2px solid var(--color-text-primary)", fontWeight: "bold" }} onClick={() => setIsMobileMenuOpen(false)}>LOGIN / REGISTER</a>
             </div>
 
-            <a href="https://sukabumieundeurindonesia.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary main-site-btn" style={{ padding: "8px 16px", fontSize: "1rem" }} onClick={() => setIsMobileMenuOpen(false)}>MAIN SITE</a>
+            {/* CROSS NAVIGATION */}
+            <a href="https://www.sukabumieundeurindonesia.com" className="btn btn-primary main-site-btn" style={{ padding: "8px 16px", fontSize: "1rem" }} onClick={() => setIsMobileMenuOpen(false)}>BERITA</a>
+            <a href="https://ticket.sukabumieundeurindonesia.com" className="btn btn-primary main-site-btn" style={{ padding: "8px 16px", fontSize: "1rem", backgroundColor: "transparent", color: "var(--color-text-primary)", border: "1px solid var(--color-border)" }} onClick={() => setIsMobileMenuOpen(false)}>BELI TIKET</a>
           </div>
         </div>
       </nav>
